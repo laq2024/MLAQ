@@ -16,10 +16,13 @@ logging.basicConfig(level=logging.INFO)
 logging.root.setLevel(logging.INFO)
 
 # add your OpenAI API key and the base URL here
-OPENAI_KEY = str("sk-4LGEn4h1YckvuKaA288c1102D1E34170AfC3998328196c57")
+Your_OpenAI_API_KEY = "key"
+Your_OpenAI_API_BASE = "base_url"
+
+OPENAI_KEY = str(Your_OpenAI_API_KEY)
 os.environ["OPENAI_API_KEY"] = OPENAI_KEY
-os.environ["OPENAI_BASE_URL"] = "https://chat1.plus7.plus/v1"
-openai.api_based = "https://chat1.plus7.plus/v1"
+os.environ["OPENAI_BASE_URL"] = Your_OpenAI_API_BASE
+openai.api_based = Your_OpenAI_API_BASE
 openai.api_key = OPENAI_KEY
 
 

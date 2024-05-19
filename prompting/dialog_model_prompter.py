@@ -82,19 +82,6 @@ class DialogModelPrompter:
         self.skip_check_memory = skip_check_memory
         self.original_state_desp = None
 
-        # os.environ["http_proxy"] = "http://localhost:7890"
-        # os.environ["HTTP_PROXY"] = "http://localhost:7890"
-        # os.environ["https_proxy"] = "http://localhost:7890"
-        # os.environ["HTTPS_PROXY"] = "http://localhost:7890"
-        # os.environ["all_proxy"] = "socks5://127.0.0.1:7890/"
-        # os.environ["ALL_PROXY"] = "socks5://127.0.0.1:7890/"
-        OPENAI_KEY = str("sk-4LGEn4h1YckvuKaA288c1102D1E34170AfC3998328196c57")
-
-        os.environ["OPENAI_API_KEY"] = OPENAI_KEY
-        os.environ["OPENAI_BASE_URL"] = "https://chat1.plus7.plus/v1"
-        openai.api_based = "https://chat1.plus7.plus/v1"
-        openai.api_key = OPENAI_KEY
-
         self.client = OpenAI()
         self.token_encoder = tiktoken.encoding_for_model(llm_source)
         self.last_end_step = 100
