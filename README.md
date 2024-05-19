@@ -4,6 +4,8 @@ Codebase for paper: LLM-based Agent via Q-planner for Policy Optimization in Lon
 <img src="LAQ.png" alt="method" width="800"/>
 
 
+**Notice:** We recorded all the data during our experiments and stored it in [Google Drive](https://drive.google.com/file/d/1Yzz2BymCi00vMRKZDA-zxxetqRCR45Jk/view). 
+
 ## Setup
 ### setup conda env and package install
 ```
@@ -38,3 +40,4 @@ You can change the blocksworld domain to other domains by changing the `--task` 
 $ conda activate laq
 (roco) $ python run_LAQ.py --task blocksworld -llm gpt-4-0125-preview --skip_display --tree_load --optimal_steps=2 --start_run_id=0 --start_case_id=0
 ```
+
