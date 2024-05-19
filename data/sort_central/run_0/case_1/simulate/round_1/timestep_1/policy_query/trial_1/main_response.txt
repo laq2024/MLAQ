@@ -1,0 +1,127 @@
+### [1. Action Planning]
+Let's follow the steps to plan the action step-by-step.
+
+#### [a. Recall]
+**Repeat current State**: 
+- blue_square: [panel3]
+- pink_polygon: [panel5]
+- yellow_trapezoid: [panel7]
+
+**Repeat target State**: 
+- blue_square: [panel2]
+- pink_polygon: [panel4]
+- yellow_trapezoid: [panel6]
+
+#### [b. Action Plan]
+**Interactive Cubes**:
+- repeat the zones' range: 
+  - zone1 = [panel1, panel2, panel3]
+  - zone2 = [panel3, panel4, panel5]
+  - zone3 = [panel5, panel6, panel7]
+- initial three empty pools: 
+  - pool1 = {{}} 
+  - pool2 = {{}} 
+  - pool3 = {{}}
+- for each cube, get the zones it belongs to, and add it into the pools: 
+  - blue_square -> panel3 -> zone1 & zone2 -> pool1 = {{blue_square}}, pool2 = {{blue_square}}, pool3 = {{}}
+  - pink_polygon -> panel5 -> zone2 & zone3 -> pool1 = {{}}, pool2 = {{pink_polygon}}, pool3 = {{pink_polygon}}
+  - yellow_trapezoid -> panel7 -> zone3 -> pool1 = {{}}, pool2 = {{}}, pool3 = {{yellow_trapezoid}}
+
+**Occupied Panels**:
+- List the occupied panels: 
+  - panel3, panel5, panel7
+
+**Available Targets**:
+- For each robot, repeat its reach range:
+  - Alice: zone1 = [panel1, panel2, panel3]
+  - Bob: zone2 = [panel3, panel4, panel5]
+  - Chad: zone3 = [panel5, panel6, panel7]
+
+**Tip Recall**:
+- Tip 1: move the objects to another zone through multiple movements by placing cubes at the intersection (panel3 and panel5).
+- Tip 2: do not choose actions for each agent separately, and plan the action jointly by considering the multi-agent system as a whole.
+
+**Plan Process**:
+- **Alice**: Alice can move blue_square from panel3 to panel2.
+- **Bob**: Bob can move pink_polygon from panel5 to panel4.
+- **Chad**: Chad can move yellow_trapezoid from panel7 to panel6.
+
+#### [c. Pre Action Conclude]
+Conclude the action according to the Action Planning in the format of Detailed Constraints for Action.
+
+### [2. Action Conclusion]
+```
+EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION PICK pink_polygon PLACE panel4
+NAME Chad ACTION PICK yellow_trapezoid PLACE panel6
+```
+
+### [3. Action Constraints Check]
+Let's follow the Detailed Constraints for Action to check if the action is correct step-by-step.
+
+**[Basic Check]**
+- List the lines of the actions: 
+  - Alice ACTION PICK blue_square PLACE panel2
+  - Bob ACTION PICK pink_polygon PLACE panel4
+  - Chad ACTION PICK yellow_trapezoid PLACE panel6
+- Count the number: 3. Check if it is equal to three: yes. Conclusion: correct.
+- List the agents that perform WAIT: none. Count the number: 0. Check if it is less than or equal to three: yes. Conclusion: correct.
+- List the agents that perform PICK PLACE: 
+  - Alice
+  - Bob
+  - Chad
+- List the <object> of PICK: 
+  - blue_square
+  - pink_polygon
+  - yellow_trapezoid
+- Check if all the <object> is one of blue_square, pink_polygon, yellow_trapezoid: yes. Conclusion: correct.
+- List the agents that perform PICK PLACE: 
+  - Alice
+  - Bob
+  - Chad
+- List the <object> of PICK: 
+  - blue_square
+  - pink_polygon
+  - yellow_trapezoid
+- Check if the agents have the same <object> with each other: no. Conclusion: correct.
+- List the agents that perform PICK PLACE: 
+  - Alice
+  - Bob
+  - Chad
+- List the <target> of PLACE: 
+  - panel2
+  - panel4
+  - panel6
+- Check if the agents have the same <target> with each other: no. Conclusion: correct.
+
+**[PICK & PLACE Check]**
+- **Alice's action**:
+  - List Alice's action: PICK blue_square PLACE panel2.
+  - List Alice's reach range: [panel1, panel2, panel3].
+  - a. [PICK Range Check] List the <object> of PICK: blue_square, and the <location> of this <object> in the current state: panel3. Check if the <location> is in the reach range (Alice's: [panel1, panel2, panel3]): yes. Conclusion: correct.
+  - b. [PLACE Range Check] List the <target> of PLACE: panel2. Check if the <target> is in the reach range (Alice's: [panel1, panel2, panel3]): yes. Conclusion: correct.
+  - c. [PLACE Target Check] List the <target> of PLACE: panel2. List the objects 'is on <target>' in the current state: pool1 = []. List the PICKed objects in the current state: pool2 = [blue_square]. List the intersection of pool1 and pool2: pool3 = []. Check if the pool1(after removal) is empty: yes. Conclusion: correct.
+- **Bob's action**:
+  - List Bob's action: PICK pink_polygon PLACE panel4.
+  - List Bob's reach range: [panel3, panel4, panel5].
+  - a. [PICK Range Check] List the <object> of PICK: pink_polygon, and the <location> of this <object> in the current state: panel5. Check if the <location> is in the reach range (Bob's: [panel3, panel4, panel5]): yes. Conclusion: correct.
+  - b. [PLACE Range Check] List the <target> of PLACE: panel4. Check if the <target> is in the reach range (Bob's: [panel3, panel4, panel5]): yes. Conclusion: correct.
+  - c. [PLACE Target Check] List the <target> of PLACE: panel4. List the objects 'is on <target>' in the current state: pool1 = []. List the PICKed objects in the current state: pool2 = [pink_polygon]. List the intersection of pool1 and pool2: pool3 = []. Check if the pool1(after removal) is empty: yes. Conclusion: correct.
+- **Chad's action**:
+  - List Chad's action: PICK yellow_trapezoid PLACE panel6.
+  - List Chad's reach range: [panel5, panel6, panel7].
+  - a. [PICK Range Check] List the <object> of PICK: yellow_trapezoid, and the <location> of this <object> in the current state: panel7. Check if the <location> is in the reach range (Chad's: [panel5, panel6, panel7]): yes. Conclusion: correct.
+  - b. [PLACE Range Check] List the <target> of PLACE: panel6. Check if the <target> is in the reach range (Chad's: [panel5, panel6, panel7]): yes. Conclusion: correct.
+  - c. [PLACE Target Check] List the <target> of PLACE: panel6. List the objects 'is on <target>' in the current state: pool1 = []. List the PICKed objects in the current state: pool2 = [yellow_trapezoid]. List the intersection of pool1 and pool2: pool3 = []. Check if the pool1(after removal) is empty: yes. Conclusion: correct.
+
+### [4. Forbidden & Mistake Action Check]
+No forbidden actions.
+
+### [5. Action Output]
+```
+EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION PICK pink_polygon PLACE panel4
+NAME Chad ACTION PICK yellow_trapezoid PLACE panel6
+```

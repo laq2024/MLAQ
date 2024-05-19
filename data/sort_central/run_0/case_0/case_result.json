@@ -1,0 +1,1 @@
+{"success_token": {"input_token": [0], "output_token": [0]}, "success_memory_ratio": {"llm_count": [0], "memory_count": [1]}, "converge_token": {"input_token": [0], "output_token": [0]}, "converge_memory_ratio": {"llm_count": [0], "memory_count": [1]}, "end_step": 1}

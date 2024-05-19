@@ -1,0 +1,32 @@
+Alright, let's predict the next [State] based on the given [State] and [Action] by following the [Predicting Instruction] step-by-step.
+
+### 1. [Interaction Item Pool]
+List all PICKed objects in the [Action]:
+- Alice picks blue_square
+
+Therefore, the <pool> is:
+<pool>=[blue_square]
+
+### 2. [Action Forward Rule]
+List the action of each agent:
+- Alice: PICK blue_square PLACE panel2
+- Bob: WAIT
+- Chad: WAIT
+
+Based on the action of Alice:
+- Since the action is 'PICK blue_square PLACE panel2', the state of blue_square will change to 'blue_square is on panel2'.
+
+Cubes that are not in the <pool>:
+- pink_polygon
+- yellow_trapezoid
+
+Their states should not change.
+
+### 3. [Prediction Conclusion]
+Conclude the [Prediction] based on the [Action Forward Rule].
+
+[State]
+[Cube States]
+blue_square is on panel2
+pink_polygon is on panel4
+yellow_trapezoid is on panel6

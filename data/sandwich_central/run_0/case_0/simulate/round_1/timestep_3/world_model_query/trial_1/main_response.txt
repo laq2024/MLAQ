@@ -1,0 +1,48 @@
+Following the instructions step-by-step:
+
+### Step 1: Interaction Item Pool
+- Initialize the pool of food items the robots are interacting with. It is an empty list at the beginning: `pool={}`
+
+### Step 2: Action Forward Rule
+List the actions of Chad and Dave:
+- **Chad's Action**: PUT, tomato, bread_slice1
+    - Chad's gripper is empty.
+    - Tomato is atop bread_slice1.
+    - Add tomato to the pool: `pool={tomato}`
+- **Dave's Action**: PICK, cheese
+    - Dave's gripper is holding cheese.
+    - Cheese is gripped by Dave.
+    - Add cheese to the pool: `pool={tomato, cheese}`
+
+### Step 3: Prediction Conclusion
+The format of the [Prediction] should follow the [Detailed Constraints for State]:
+- The food items that are not present in the pool should not change their state.
+
+[Prediction]:
+```
+[State]
+[Food States]
+bread_slice1: atop cutting_board
+bread_slice2: on left side
+bacon: on left side
+cheese: gripped by Dave
+tomato: atop bread_slice1
+cucumber: on right side
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is holding cheese
+```
+
+### Detailed Explanation:
+- **bread_slice1**: Remains atop cutting_board.
+- **bread_slice2**: Remains on left side.
+- **bacon**: Remains on left side.
+- **cheese**: Is now gripped by Dave.
+- **tomato**: Is now atop bread_slice1.
+- **cucumber**: Remains on right side.
+- **ham**: Remains on right side.
+- **beef_patty**: Remains on right side.
+- **Chad's gripper**: Is now empty.
+- **Dave's gripper**: Is now holding cheese.

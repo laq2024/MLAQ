@@ -1,0 +1,66 @@
+Original state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on orange block
+
+Target state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block
+
+Initial Information:
+nothing
+Original state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on orange block
+
+Target state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block
+
+Initial Information:
+nothing
+Original state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on orange block
+
+Target state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block
+
+Initial Information:
+nothing

@@ -1,0 +1,48 @@
+### 1. Action Planning
+
+#### Repeat Current State
+- red block: on table
+- blue block: on table
+- orange block: on blue block
+- yellow block: in hand
+- hand: Holding yellow block
+
+#### Repeat Target State
+- red block: on table
+- blue block: on table
+- orange block: on blue block
+- yellow block: on red block
+- hand: Empty
+
+#### Action Plan
+Since the hand is currently holding the yellow block, the next logical step to align with the target state is to place the yellow block on the red block.
+
+### 2. Action Conclusion
+```
+EXECUTE
+STACK yellow block ON red block
+```
+
+### 3. Action Constraints Check
+
+#### Basic Check
+- List the line of the actions: [STACK yellow block ON red block].
+- Count the number: [1]. Check if it is equal to one: [yes]. Conclusion: [Action is correct].
+- List the action: [STACK yellow block ON red block]. Actions asides from these are not allowed. Check if the action is one of "PICK UP", "UNSTACK", "PUT DOWN" and "STACK ON": [yes]. Conclusion: [Action is correct].
+
+#### STACK ON Check
+1. List the state of your hand: [Holding yellow block]. Your hand cannot be empty. Check if your hand is holding <object>: [yes]. Conclusion: [Action is correct].
+2. List the <object> of STACK: [yellow block]. <object> must be in your hand. List the state of <object>: [in hand], and the state of your hand: [Holding yellow block]. Check if the <object> is in your hand: [yes]. Conclusion: [Action is correct].
+3. List the <target> of ON: [red block]. No <object>'s state can be 'on <target>'. Repeat current State: [red block: on table, blue block: on table, orange block: on blue block, yellow block: in hand, hand: Holding yellow block]. In the repeated current state, list the blocks whose state is 'on <target>': [None]. List the state of the above block: [None], check again if the state of the above block is 'on <target>': [None]. If check is passed, count the number of above blocks: [0]. Check if the number is zero: [yes]. Conclusion: [Action is correct].
+
+### 4. Forbidden Action Check
+- List the chosen action: [STACK yellow block ON red block].
+- Repeat all actions and feedbacks in the [Forbidden Actions], [Policy Mistakes], and [Temporary Mistakes]: [None listed].
+- Check if the [Action] is in the [Temporary Mistakes] one by one: [Not applicable].
+- Check if the [Action] is in the [Forbidden Actions] or [Policy Mistakes]: [Not applicable].
+
+### 5. Action Output
+```
+EXECUTE
+STACK yellow block ON red block
+```

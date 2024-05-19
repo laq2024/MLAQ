@@ -1,0 +1,129 @@
+Here is the feedback from an action checker. 
+[--- Begin ---]
+Let's check the given [Action] based on the [State] following the [Detailed Constraints for Action].
+
+**Given [Action]:**
+```
+EXECUTE
+NAME Chad ACTION WAIT
+NAME Dave ACTION PICK bread_slice1
+```
+
+**[State]:**
+```
+[Food States]
+bread_slice1: on left side
+bread_slice2: on left side
+bacon: on left side
+cheese: on left side
+tomato: on right side
+cucumber: on right side
+ham: on right side
+beef_patty: on right side
+
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is empty
+```
+
+**Check [Action] step-by-step:**
+
+1. **[Line Number Check]**
+   The line of the actions should equal to two:
+   ```
+   ACTION:
+   NAME Chad ACTION WAIT
+   NAME Dave ACTION PICK bread_slice1
+   ```
+   Line conclusion: [yes]
+
+2. **[Agent Order Check]**
+   The first agent should be Chad and the second agent should be Dave:
+   ```
+   ACTION:
+   NAME Chad ACTION WAIT
+   NAME Dave ACTION PICK bread_slice1
+   ```
+   Line conclusion: [yes]
+
+3. **[WAIT Number Check]**
+   The number of WAIT should be less than or equal to one:
+   ```
+   ACTION:
+   NAME Chad ACTION WAIT
+   NAME Dave ACTION PICK bread_slice1
+   ```
+   Number of WAIT actions: 1
+   Line conclusion: [yes]
+
+4. **[PUT Number Check]**
+   The number of PUT should be less than or equal to one:
+   ```
+   ACTION:
+   NAME Chad ACTION WAIT
+   NAME Dave ACTION PICK bread_slice1
+   ```
+   Number of PUT actions: 0
+   Line conclusion: [yes]
+
+5. **[PICK Side Check]**
+   PICK the food item on the side of the robot:
+   ```
+   ACTION:
+   NAME Chad ACTION WAIT
+   NAME Dave ACTION PICK bread_slice1
+   ```
+   bread_slice1 is on the left side, and Dave can pick from the left side.
+   Line conclusion: [yes]
+
+6. **[PICK Robot State Check]**
+   PICK the food item only if the gripper is empty:
+   ```
+   ACTION:
+   NAME Chad ACTION WAIT
+   NAME Dave ACTION PICK bread_slice1
+   ```
+   Dave's gripper is empty.
+   Line conclusion: [yes]
+
+7. **[PICK Food State Check]**
+   PICK the food item only if the food item's state is not 'atop <obj>':
+   ```
+   ACTION:
+   NAME Chad ACTION WAIT
+   NAME Dave ACTION PICK bread_slice1
+   ```
+   bread_slice1 is not 'atop' any other object.
+   Line conclusion: [yes]
+
+8. **[PUT Availability Check 1]**
+   Not applicable since no PUT action is performed.
+   Line conclusion: [not applicable]
+
+9. **[PUT Availability Check 2]**
+   Not applicable since no PUT action is performed.
+   Line conclusion: [not applicable]
+
+10. **[PUT Order Check 1]**
+    Not applicable since no PUT action is performed.
+    Line conclusion: [not applicable]
+
+11. **[PUT Order Check 2]**
+    Not applicable since no PUT action is performed.
+    Line conclusion: [not applicable]
+
+12. **[PICK Order Check]**
+    For PICK action, the robot should PICK the first food item in its [Reachable Items]:
+    ```
+    ACTION:
+    NAME Chad ACTION WAIT
+    NAME Dave ACTION PICK bread_slice1
+    ```
+    The [Reachable Items] for Dave are: [bread_slice1, cheese, bread_slice2]
+    bread_slice1 is the first item in Dave's [Reachable Items].
+    Line conclusion: [yes]
+
+**[Conclusion]**: The given [Action] is valid based on the provided [State].
+[--- End ---]
+Please read the feedback carefully and help to summarize it. Please provide the feedback in a more concise manner. 
+If the feedback says that the action is valid, please output [VALID]; otherwise, please output [ERROR] and provide the reason. 

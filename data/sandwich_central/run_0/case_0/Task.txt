@@ -1,0 +1,32 @@
+Original state:
+[State]
+[Food States]
+bread_slice1: on left side
+bread_slice2: on left side
+bacon: on left side
+cheese: on left side
+tomato: on right side
+cucumber: on right side
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is empty
+
+Target state:
+[State]
+[Food States]
+bread_slice1: atop cutting_board
+bread_slice2: atop cucumber
+bacon: on left side
+cheese: atop tomato
+tomato: atop bread_slice1
+cucumber: atop cheese
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is empty
+
+Initial Information:
+Recipe Order is['bread_slice1', 'tomato', 'cheese', 'cucumber', 'bread_slice2']

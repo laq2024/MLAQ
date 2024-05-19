@@ -1,0 +1,34 @@
+[Start]
+[Interaction Items Pool]: first initialize an empty <pool>={}. For PICK actions, repeat tomato: [tomato], add tomato to <pool>=[tomato]. For PICK actions, repeat bread_slice1: [bread_slice1], add bread_slice1 to <pool>=[tomato, bread_slice1].
+1. [Header Title Check] A header titled [State] -> A header titled [Food States] -> A header titled [Robot States] -> All headers are correctly titled: [yes]. Line conclusion: [yes]
+
+2. [Food Order Check] Food items must be listed in this order: [bread_slice1, bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty]: [yes]. Line conclusion: [yes]
+
+3. [Food Format Check] For each food item, we will check if the item state is valid.
+   - The state of bread_slice1 should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>: [gripped by Dave]. Line conclusion: [yes]
+   - The state of bread_slice2 should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>: [on left side]. Line conclusion: [yes]
+   - The state of bacon should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>: [on left side]. Line conclusion: [yes]
+   - The state of cheese should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>: [on left side]. Line conclusion: [yes]
+   - The state of tomato should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>: [gripped by Chad]. Line conclusion: [yes]
+   - The state of cucumber should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>: [on right side]. Line conclusion: [yes]
+   - The state of ham should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>: [on right side]. Line conclusion: [yes]
+   - The state of beef_patty should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>: [on right side]. Line conclusion: [yes]
+
+4. [Robot Format Check] Each line represents the state of one robot's gripper.
+   - Chad's gripper should be one of: 'empty' and 'holding <food item>': [holding tomato]. Line conclusion: [yes]
+   - Dave's gripper should be one of: 'empty' and 'holding <food item>': [holding bread_slice1]. Line conclusion: [yes]
+
+5. [PICK Rule Check 1] For PICK, repeat <agent>: [Chad], <obj>: [tomato], state of <agent>: [Chad's gripper is holding tomato], it should equal to 'Chad's gripper is holding tomato': [yes]. Line conclusion: [yes]
+5. [PICK Rule Check 1] For PICK, repeat <agent>: [Dave], <obj>: [bread_slice1], state of <agent>: [Dave's gripper is holding bread_slice1], it should equal to 'Dave's gripper is holding bread_slice1': [yes]. Line conclusion: [yes]
+
+6. [PICK Rule Check 2] For PICK, repeat <agent>: [Chad], <obj>: [tomato], state of <obj> in prediction: [gripped by Chad], it should equal to 'gripped by Chad': [yes]. Line conclusion: [yes]
+6. [PICK Rule Check 2] For PICK, repeat <agent>: [Dave], <obj>: [bread_slice1], state of <obj> in prediction: [gripped by Dave], it should equal to 'gripped by Dave': [yes]. Line conclusion: [yes]
+
+7. [PUT Rule Check 1] For PUT, repeat <agent>: [not applicable], as there is no PUT action in the current context: [not applicable]. Line conclusion: [not applicable]
+
+8. [PUT Rule Check 2] For PUT, repeat <obj1>=[not applicable], as there is no PUT action in the current context: [not applicable]. Line conclusion: [not applicable]
+
+9. [Other State Check] Repeat items not in <pool>=[tomato, bread_slice1]: [bread_slice2, bacon, cheese, cucumber, ham, beef_patty]. State of these items should not change: [yes]. Line conclusion: [yes]
+
+[Conclusion]
+Based on the checks above, every line conclusion is [yes], which means that the [Prediction] is valid according to the given [State] and [Action].

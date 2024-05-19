@@ -1,0 +1,60 @@
+You are an action checker. You should check if the [Action] is valid based on the given [State].
+You should follow the check instructions in [Detailed Constraints for Action] to check the [Action] step-by-step. Take the mistakes in the [Action Mistakes] into consideration.
+
+The following lists the [Task Description], and [Detailed Constraints for Action]. 
+[Task Description]
+Task: Cooperative Sorting in a Multi-Agent System
+
+Agents: Alice, Bob and Chad
+Alice - Can only PICK and PLACE cube items on zone1=[panel1, panel2, panel3].
+Bob - Can only PICK and PLACE cube items on zone2=[panel3, panel4, panel5].
+Chad - Can only PICK and PLACE cube items on zone3=[panel5, panel6, panel7].
+
+Objective: Collaboratively place the cubes on the panels as follows: place blue_square on panel2, place pink_polygon on panel4, place yellow_trapezoid on panel6. The cube items will be placed randomly on all panels of the table at the beginning of an episode. 
+
+[Detailed Constraints for Action]
+Check the following constraints and Fill in blanks in '[]'. Check these constraints one by one: 1, 2... Do not forget any constraints!
+* Get PICKed objects: <pool1>=[]
+1. [Line Number Check] The line of the actions should be equal to three
+2. [Agent Order Check] The order of the agents' actions should be Alice, Bob, Chad
+3. [WAIT Number Check] The number of WAIT actions should be less than or equal to two
+4. [PICK Object Check] Repeat <pool1>=[], there should not have duplicate objects: []
+5. [PLACE Target Check] Get all PLACE target panels: [], there should not have duplicate targets: []
+6. [PICK & PLACE Constraints] For simplicity, we use <agent> to denote the agent's name: [Alice, Bob, Chad]. When checking, please replace <agent> with the real agent's name.
+  + If <agent>'s action is PICK PLACE: [], repeat <agent>'s reach range: <zone>-<agent>=[panel...]
+  a. [PICK Range Check] Repeat <object>: [], location of <object>: <location>=[]. <location> should in <zone>-<agent>: []
+  b. [PLACE Range Check] Repeat <target>: []. <target> should in the <zone>-<agent>: []
+  c. [PLACE Target Check] Repeat <target>: [], object whose state is 'is on <target>': <X-object>=[], <pool1>=[blue_square, pink_polygon]. <X-object> should be empty: [] or in <pool1>: []
+* When checking, you should repeat the prompt and fill in blanks and give the line conclusion. For example:
+3. [WAIT Number Check] The number of WAIT actions should be less than or equal to two: [yes]. Line conclusion: [yes]
+4. [PICK Object Check] Repeat <pool1>=[blue_square, pink_polygon], there should no duplicate objects: [yes]. Line conclusion: [yes]
+* Constraint 6 may have multiple agents of checking. If so, you should output results separately. For example: 
+6.1 [PICK & PLACE Constraints] For Alice's action: [PICK blue_square PLACE panel2], repeat Alice's reach range: <zone>-Alice=[panel1, panel2, panel3]
+6.1.a ... 6.1.b [PLACE Range Check] Repeat <target>: [panel2]. <target> should in the <zone>-Alice: [yes]. Line conclusion: [yes]
+6.1.c [PLACE Target Check] Repeat <target>: [panel2], object whose state is 'is on <target>': <X-object>=[pink_polygon], <pool1>=[blue_square, pink_polygon]. <X-object> should be empty: [no] or in <pool1>: [yes]. Line conclusion: [yes]
+6.2 [PICK & PLACE Constraints] For Bob's action: ... 6.3 ...
+[Reachable Cubes]
+Alice: blue_square
+Bob: pink_polygon
+Chad: yellow_trapezoid
+[Action Mistakes]
+No action mistakes.
+Follow the [Detailed Constraints for Action] strictly and think step-by-step, then give the [Conclusion]
+Now you should check the following [Action] based on the given [State]
+[State]
+[Cube States]
+blue_square is on panel1
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION WAIT
+NAME Chad ACTION WAIT
+
+[Start]
+* Get PICKed objects: <pool1>= ...
+1. [Line Number Check]
+2. [Agent Order Check]
+...
+[Conclusion] ...

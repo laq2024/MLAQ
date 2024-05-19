@@ -1,0 +1,1682 @@
+[
+    {
+        "state": {
+            "A": 5,
+            "B": 4,
+            "C": 6
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 6,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 4,
+            "C": 6
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 3,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 4,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 7,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 1,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 1,
+            "C": 6
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 3,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 5,
+            "C": 6
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 2,
+            "C": 4
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 7,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 2,
+            "C": 7
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 1,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 1,
+            "C": 7
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 3,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 2,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 4,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 5,
+            "C": 3
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 1,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 5,
+            "C": 7
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 4,
+            "C": 7
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 4,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 4,
+            "C": 7
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 5,
+            "C": 3
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 4,
+            "C": 7
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 3,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 7,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 5,
+            "C": 3
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 2,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 4,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 4,
+            "C": 6
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 1,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 3,
+            "C": 6
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 2,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 7,
+            "C": 3
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 6,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 3,
+            "C": 6
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 7,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 1,
+            "C": 7
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 1,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 6,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 2,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 1,
+            "C": 6
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 4,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 1,
+            "C": 6
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 2,
+            "C": 6
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 6,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 6,
+            "C": 1
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 4,
+            "C": 1
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 6,
+            "C": 7
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 2,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 5,
+            "C": 6
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 7,
+            "C": 6
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 6,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 4,
+            "C": 5
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 6,
+            "C": 7
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 7,
+            "C": 6
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 6,
+            "C": 1
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 4,
+            "C": 1
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 2,
+            "C": 7
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 3,
+            "C": 4
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 1,
+            "C": 5
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 4,
+            "C": 3
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 6,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 7,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 6,
+            "C": 7
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 5,
+            "C": 6
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 7,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 2,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 6,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 3,
+            "C": 7
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 4,
+            "C": 2
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 7,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 7,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 3,
+            "C": 4
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 5,
+            "C": 3
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 3,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 1,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 2,
+            "C": 6
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 6,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 5,
+            "C": 6
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 1,
+            "C": 6
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 2,
+            "C": 3
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 5,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 3,
+            "C": 7
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 1,
+            "C": 7
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 5,
+            "C": 6
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 3,
+            "C": 2
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 3,
+            "C": 6
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 6,
+            "C": 3
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 3,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 4,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 3,
+            "C": 6
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 2,
+            "C": 6
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 6,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 7,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 4,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 7,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 5,
+            "C": 2
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 2,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 6,
+            "C": 7
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 5,
+            "C": 3
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 5,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 5,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 2,
+            "C": 7
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 3,
+            "C": 7
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 1,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 5,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 2,
+            "C": 3
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 4,
+            "C": 5
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 7,
+            "C": 2
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 4,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 3,
+            "C": 5
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 7,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 1,
+            "C": 3
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 2,
+            "C": 5
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 6,
+            "C": 3
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 1,
+            "C": 4
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 1,
+            "C": 6
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 4,
+            "C": 5
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 7,
+            "C": 6
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 3,
+            "C": 7
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 2,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 2,
+            "C": 7
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 4,
+            "C": 7
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 5,
+            "C": 1
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 2,
+            "C": 6
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 4,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 5,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 1,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 7,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 4,
+            "C": 6
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 6,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 2,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 3,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 6,
+            "C": 7
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 5,
+            "C": 7
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 7,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 1,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 7,
+            "C": 3
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 3,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 1,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 7,
+            "C": 1
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 7,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 2,
+            "C": 7
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 7,
+            "C": 1
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 5,
+            "C": 4
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 5,
+            "C": 2
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 2,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 5,
+            "C": 7
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 4,
+            "C": 7
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 7,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 3,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 2,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 5,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 6,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 3,
+            "C": 5
+        },
+        "optimal_steps": 1
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 2,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 4,
+            "C": 2
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 1,
+            "C": 3
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 3,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 5,
+            "C": 7
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 6,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 2,
+            "C": 6
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 6,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 1,
+            "C": 7
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 5,
+            "C": 4
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 2,
+            "C": 4
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 3,
+            "C": 6
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 3,
+            "C": 7
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 4,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 3,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 5,
+            "C": 1
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 6,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 6,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 5,
+            "C": 4
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 7,
+            "C": 6
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 6,
+            "C": 4
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 1,
+            "C": 4
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 2,
+            "C": 1
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 1,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 5,
+            "C": 7
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 1,
+            "C": 7
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 7,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 7,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 4,
+            "C": 3
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 1,
+            "C": 3
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 7,
+            "C": 5
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 3,
+            "C": 1
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 6,
+            "C": 2
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 7,
+            "C": 2
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 4,
+            "C": 2
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 1,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 2,
+            "B": 4,
+            "C": 6
+        },
+        "optimal_steps": 0
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 3,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 3,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 6,
+            "C": 5
+        },
+        "optimal_steps": 3
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 6,
+            "C": 5
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 7,
+            "C": 6
+        },
+        "optimal_steps": 2
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 1,
+            "C": 5
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 5,
+            "B": 3,
+            "C": 1
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 4,
+            "B": 6,
+            "C": 3
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 5,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 3,
+            "B": 6,
+            "C": 2
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 1,
+            "B": 7,
+            "C": 3
+        },
+        "optimal_steps": 4
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 1,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 2,
+            "C": 4
+        },
+        "optimal_steps": 5
+    },
+    {
+        "state": {
+            "A": 6,
+            "B": 5,
+            "C": 2
+        },
+        "optimal_steps": 6
+    },
+    {
+        "state": {
+            "A": 7,
+            "B": 2,
+            "C": 1
+        },
+        "optimal_steps": 6
+    }
+]

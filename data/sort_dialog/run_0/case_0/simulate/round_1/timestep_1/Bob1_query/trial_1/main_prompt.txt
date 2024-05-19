@@ -1,0 +1,70 @@
+[Action Options]
+- PICK <object> PLACE <target>: pick up <object> and place it onto <target>, where <object> is a cube and <target> is a panel
+- WAIT: Do nothing.
+
+[Action Template]
+EXECUTE
+NAME Alice ACTION <action>
+NAME Bob ACTION <action>
+NAME Chad ACTION <action>
+
+[Action Output Instructions]
+1. Commence the output with 'EXECUTE
+'. Follow with one distinct action per robot on separate lines. 
+2. Alice's action should be listed first, followed by Bob's action, and then Chad's action.
+3. Agents' reach ranges are as follows:   
+  + Alice: zone1=[panel1, panel2, panel3]
+  + Bob: zone2=[panel3, panel4, panel5]
+  + Chad: zone3=[panel5, panel6, panel7]
+
+Example: 'EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel3
+NAME Bob ACTION WAIT
+NAME Chad ACTION PICK yellow_trapezoid PLACE panel6
+'
+
+
+You are robot Bob in front of panel4. You are collaborating with Alice, Chad to sort cubes into their target panels
+Alice is tasked to place blue_square on panel2, and can reach panel1, panel2, panel3
+Chad is tasked to place yellow_trapezoid on panel6, and can reach panel5, panel6, panel7
+The task is NOT done until all three cubes are sorted correctly
+There are 7 panels, ordered left to right: panel1,...,panel7. They form a straight assembly line, panel1 is closed to panel2 and farthest from panel7
+Your goal is to place pink_polygon on panel4, but you can only reach panel3, panel4, panel5: this means you can only pick cubes from these panels, and can only place cubes on these panels
+At current round: 
+blue_square is on panel1
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+Never forget you are Bob! 
+1. You can only pick these reachable cubes: pink_polygon
+2. You can only place them on these reachable panels: panel3, panel4, panel5
+Tip 1: if there is a cube on intersection (panel3 or panel5). You have to first move it to other empty panel (like panel1, panel7 ...). Note that the target panel must be empty
+  - For example, if blue_square is on panel3 and you want to move pink_polygon from panel2 to panel4, you can first move blue_square to panel1 first and then move pink_polygon to panel3 and finally to panel4, thus avoiding collision
+Tip 2: move the objects to another zone through multiple movements by placing cubes at the intersection (panel3 and panel5)
+Tip 3: In order to reduce the total number of moving steps, robots could minimize the selection of WAIT actions without violating constraints
+Tip 4: A panel can only hold one cube at a time, so you three robots need to coordinate to avoid collisions
+Think step-by-step about the task and others' response. Carefully check and correct them if they made a mistake
+Improve your plans if given [Environment Feedback]
+
+When you respond, tell others about your goal and all constraints. Respond very concisely but informatively, and do not repeat what others have said
+Discuss with others to come up with the best plan, e.g. if your cube is out of your reach, ask others for help, and you can do the same for them
+Propose exactly one action for yourself at the **current** round, select from [Action Options]
+End your response by either: 
+1) output PROCEED, if the plans require further discussion.
+or 
+2) output EXECUTE
+ and the final plan, if everyone has made proposals and got approved, the final plan must strictly follow [Action Output Instruction]!
+
+* An agent cannot make final decisions without getting approval from the other agent. The final plan must be approved by all agents before execution.
+
+
+[Current Chat]
+[Alice]:
+I am Alice, and my target is to PUT blue_square on panel2, and other robots are Bob and Chad. Bob needs to place pink_polygon on panel4, and Chad needs to place yellow_trapezoid on panel6. Since blue_square is currently on panel1, which is within my reach, I propose to:
+
+PICK blue_square PLACE panel2
+
+Bob and Chad do not need to move any cubes from panels that are within my reach, so this action should not violate any [Forbidden Actions]. Bob and Chad, could you confirm that my action is okay and share your proposed actions?
+You are Bob, before you make decisions, you should check if the [Action] is violating the [Forbidden Actions].
+Your response is:
+
+I am ..., and my target is to PUT ... on ..., and other robots ..., Since ...

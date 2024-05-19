@@ -1,0 +1,186 @@
+You are a state predictor. You will be given a [State] and an [Action] as input. should predict the [State] after the [Action] is applied to the given [State]. You should follow the [Predicting Instruction] to predict the [State].
+At first, you should first repeat the state and action as follows: [Repeat current State] and [Repeat action].
+  + [Repeat current State]: [].
+  + [Repeat action]: [].
+[Predicting Instruction]
+You will be provided with the [State] and the [Action] of the agent. You should think step by step to output the [Prediction] of the next [State] based on the given [State] and [Action]. The format of the [Prediction] should follow the [Detailed Constraints for State].
+Please output your thinking process step-by-step by following theses steps:
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions and fill in the blanks '[]' without introducing any modifications or additional content.
+1. [Interaction Item Pool]: initialize the pool of the blocks that the agent is interacting with. It is a empty list at the beginning: pool={}.
+2. [Action Forward Rule]: List the action: [], the state in the [Prediction] is changed by the [Action]. Follow these steps to predict the [Prediction]:
+  + If the action is "PICK UP" or "UNSTACK", list the <object> of action: []. The state of <object> in the [Prediction] should be changed to "in hand". The state of your hand in the [Prediction] should be changed to "Holding <object>". Add <object> to the pool: pool=[].
+  + If the action is "PUT DOWN", list the <object> of action: []. The state of <object> in the [Prediction] should be changed to "on table". The state of your hand in the [Prediction] should be changed to "Empty". Add <object> to the pool: pool=[].
+  + If the action is "STACK ON", list the <object> of action: [], and <target> of action: []. The state of <object> in the [Prediction] should be changed to "on <target>". The state of your hand in the [Prediction] should be changed to "Empty". Add <object> to the pool: pool=[].
+3. [Prediction Conclusion]: conclude the [Prediction] based on the [Action Forward Rule]. Please output the [Prediction] in the format of [State Space Definition] at the end of this part.
+  + The format of the [Prediction] should follow the [Detailed Constraints for State].
+  + The blocks that are not present in the pool should not change their state.
+4. [Block State Consistency Check]: check if the block states are consistent with the action.
+  + Repeat the full block list: [blue block, orange block, red block, yellow block].
+  + Repeat the pool: [], and remove the items in the pool from the full block list: [].
+  + List the state of the remaining blocks in the above list: [].
+  + Repeat the [Prediction]. List the [Prediction]'s block state in the above list: []. Check if the blocks' states in the [Prediction] are consistent with the [State]: [yes/no]. If yes, the [Prediction] is correct; otherwise incorrect. Conclusion: [].
+5. [Prediction Justification]: check the [Prediction] AGAIN based on the [Action Forward Rule] and the [Block State Consistency Check]. If the [Prediction] is incorrect, justify the mistake and correct it.
+6. [Conclusion]: conclude your thinking process to output the [Prediction] in the format of [State Space Definition]. This part only contains the outputted [Prediction].
+[Prediction Example]
+Example#1: 
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on orange block
+orange block: on table
+red block: on table
+yellow block: on table
+
+[Action]
+EXECUTE
+UNSTACK yellow block
+
+[Prediction]
+[State]
+[Hand State]
+Holding yellow block
+[Block States]
+blue block: on orange block
+orange block: on table
+red block: on table
+yellow block: in hand
+
+
+
+The following lists the [Task Description], [State Space Definition], and [Action Space Definition].
+[Task Description]
+Task: Rearrange the blocks on the table.
+O
+Objective: Rearrange the blocks on the table to meet all the constraints in [Target State]. Please note that if a block is not mentioned in [Target State], we have no constraint with respect to it. However, don't hold any blocks in your hand when you consider the [Target State] to be accomplished.
+
+[Target State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block
+
+
+Instructions:
+1. You can only perform actions described in [Action Space Definition]. Please do not imagine other actions.
+2. This is a Markov Decision Process (MDP). There exists an external environment interacting with the you. 
+
+Constraints:
+1. The state of the system must adhere to the prescribed [State Space Definition]! 
+2. You should select one action from the provided [Action Space Definition]. 
+
+[State Space Definition]
+Define the state of the scenarios: blocks and hand.
+1. [Hand State]: The state of the hand. It can be "Empty" or "Holding <object>", where <object> is a block.
+2. [Block States]: The state of each block. It can only be one of ["on <object>", "on table", "in hand"]. The blocks should be listed in this order: blue block, orange block, red block, yellow block.
+
+[State Template]
+[State]
+[Hand State]
+<hand state>
+[Block States]
+blue block: <block state>
+orange block: <block state>
+red block: <block state>
+yellow block: <block state>
+
+[Detailed Constraints for State]
+The following paragraphs are the detailed constraints for State. There are three main <check items>: [Title Check], [Hand State Check], and [Block States Check].
+1. [Title Check] A header titled [State].
+2. [Hand State Check] A header titled [Hand State]. Then, list the Hand State.
+  + Hand state must be one of ["Empty", "Holding <object>"], where <object> is a block (e.g. "Holding blue block").
+3. [Block States Check] A header titled [Block States]. Then, list the states of each block.
+  + Each line represents the state of one block item.
+  + The block items must be listed in this order: blue block, orange block, red block, yellow block.
+  + The <block state> specifies the state of the block. It can only be "on <object>", "on table" or "in hand" (e.g. "blue block: on table", "orange block: on red block", "red block: in hand").
+
+[Example States]
+Example#1:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on red block
+orange block: on blue block
+red block: on table
+yellow block: on table
+
+[Action Space Definition]
+Detail the action space with the stipulated actions: PICK UP, UNSTACK, PUT DOWN, STACK ON.
+- PICK UP <object>: Execute if hand is empty, and <object> is on table and no block is on it. Pick up <object> from table. After execution, you will be holding the block.
+- UNSTACK <object>: Execute if hand is empty, <object> is on another block and no block is on it. UNSTACK <object> from another block. After execution, you will be holding the block.
+- PUT DOWN <object>: Execute if hand is holding <object>. Put down <object> on table. After execution, your hand will be empty.
+- STACK <object> ON <target>: Execute if hand is holding <object>, and no block is on <target>. Stack <object> on the top of <target>. After execution, your hand will be empty.
+
+[Action Template]
+EXECUTE
+<action>
+
+[Action Output Instructions]
+1. Commence the output with 'EXECUTE
+'. Follow with one action. 
+2. Don't add extra symbols at the end of each line, such as periods.
+
+[Action Planning Instructions]
+At first, you should first repeat the state as follows: [Repeat current State] and [Repeat target State].
+  + [Repeat current State]: [red block: [], blue block: [], orange block: [], yellow block: []; hand: []]
+  + [Repeat target State]: [red block: [], blue block: [], orange block: [], yellow block: []; hand: []]
+[Constraints]: You can only do one action at a time. Do not choose the action listed in the [Forbidden Actions].
+Please output your thinking process step-by-step. You have to follow these steps one by one to plan the [Action]: [Action Plan] and [Pre Action Conclusion].
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions to not omit any steps.
+a. [Action Plan] Plan the [Action] of the agent step by step and list the thinking process.
+  + Follow the [Action Output Instructions] and [Detailed Constraints for Action] to plan the [Action] of the agent. You can also take the following tips (Tips 1 and Tips 2) into consideration.
+  + [Tips 1]: If you want to PICK or UNSTACK a block with other blocks on it, you should first UNSTACK the blocks on top of it.
+  + [Tips 2]: Do not forget that when you are holding a block, you can only PUT DOWN or STACK ON it and you cannot PICK UP or UNSTACK other blocks.
+b. [Pre Action Conclude] Conclude the [Action] according to the [Action Planning] in the format of [Detailed Constraints for Action]. Conclusion should be in the order [hand; red block, blue block, orange block, yellow block].
+
+[Detailed Constraints for Action]
+[Detailed Constraints] Now, you should follow the constraints one-by-one and step-by-step to check if the action is correct: [Basic Check] and [Action Check].
+You have to follow these constraints strictly and do not have your own understanding of the constraints.
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions and fill in the blanks '[]' without introducing any modifications or additional content. You should also fill in the <object> and <target> with the correct block names when needed.
+1. [Basic Check] Please output "[Basic Check]" and do as follows:
+  + List the line of the actions: []. There must be one line of actions. Count the number: []. Check if it is equal to one: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + List the action: []. Actions asides from these are not allowed. Check if the action is one of "PICK UP", "UNSTACK", "PUT DOWN" and "STACK ON": [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+2. [Action Check] If action is "PICK UP", go to [PICK UP Check]; if action is "UNSTACK", go to [UNSTACK Check]; if action is "PUT DOWN", go to [PUT DOWN Check]; if action is "STACK ON", go to [STACK ON Check].
+  + [PICK UP Check] Please output "[PICK UP Check]" and do as follows:
+    a. List the state of your hand: []. Your hand must be empty. Check if your hand is empty: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    b. List the <object> of PICK UP: []. <object>'s state must be 'on table'. List the state of <object>: []. Check if the <object> is 'on table': [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    c. List the <object> of PICK UP: []. No <object>'s state can be 'on <object>'. In the repeated current state, list the blocks whose state is 'on <target>': []. List the state of the above block: [], check again if the state of the above block is 'on <target>': []. If check is passed, count the number of above blocks: []. Check if the number is zero: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + [UNSTACK Check] Please output "[UNSTACK Check]" and do as follows:
+    a. List the state of your hand: []. Your hand must be empty. Check if your hand is empty: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    b. List the <object> of UNSTACK: []. <object>'s state must be on another block. List the state of <object>: []. Check if the <object> is 'on <another block>': [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    c. List the <object> of UNSTACK: []. No <object>'s state can be 'on <object>'. Repeat current State: []. In the repeated current state, list the blocks whose state is 'on <target>': []. List the state of the above block: [], check again if the state of the above block is 'on <target>': []. If check is passed, count the number of above blocks: []. Check if the number is zero: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + [PUT DOWN Check] Please output "[PUT DOWN Check]" and do as follows:
+    a. List the state of your hand: []. Your hand cannot be empty. Check if your hand is holding <object>: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + [STACK ON Check] Please output "[STACK ON Check]" and do as follows:
+    a. List the state of your hand: []. Your hand cannot be empty. Check if your hand is holding <object>: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    b. List the <object> of STACK: []. <object> must be in your hand. List the state of <object>: [], and the state of your hand: []. Check if the <object> is in your hand: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    c. List the <target> of ON: []. No <object>'s state can be 'on <target>'. Repeat current State: []. In the repeated current state, list the blocks whose state is 'on <target>': []. List the state of the above block: [], check again if the state of the above block is 'on <target>': []. If check is passed, count the number of above blocks: []. Check if the number is zero: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+
+[Example Actions]
+Example#1: EXECUTE
+PICK UP orange block.
+
+Example#2: EXECUTE
+STACK blue block ON red block.
+
+
+[Prediction Mistakes]
+No prediction mistakes.
+
+Now, output your prediction below. You should follow the [Predicting Instruction] strictly and think step-by-step.Now, you should predict the next [State] after the following [Action] is applied to the given [State]. You have to follow the instructions strictly rather than your own thoughts.
+[State]
+[Hand State]
+Holding yellow block
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: in hand
+
+EXECUTE
+STACK yellow block ON red block
+

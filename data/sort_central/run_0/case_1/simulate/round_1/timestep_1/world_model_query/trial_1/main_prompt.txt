@@ -1,0 +1,107 @@
+You are a state predictor. You will be given a [State] and an [Action] as input. should predict the [State] after the [Action] is applied to the given [State]. You should follow the [Predicting Instruction] to predict the [State].
+[Predicting Instruction]
+You will be provided with the [State] and the [Action] of the multi-agent system. You should think step by step to output the [Prediction] of the next [State] based on the given [State] and [Action]. The format of the [Prediction] should follow the [Detailed Constraints for State]
+Please output your thinking process step-by-step by following theses steps: [Interaction Item Pool], [Action Forward Rule] and [Prediction Conclusion]
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions and fill in the blanks '[]' without introducing any modifications or additional content
+1. You should think step by step, and make sure the [State] does not break the [Detailed Constraints for State].
+3. You should follow the format described in [Detailed Constraints for State].
+4. You should output your thinking process step-by-step in the following order:
+  + [State Prediction]: Strictly follow the [State Prediction Instructions] to predict the [State] of the multi-agent system step by step and list the thinking process.
+  + [State Conclusion]: Conclude the [State] in the format of [Detailed Constraints for State].
+  + [State Constraints Check]: check if the [State] satisfies the [Detailed Constraints for State]. You should follow the steps in [Detailed Constraints for State] to check the [State] step by step.
+  If the [State] didn't pass the [State Constraints Check]:
+    - Follow these instructions to predict a new [State] step by step and list the thinking process:
+      - Go back to a new [State Prediction] and [State Constraints Check] process again.
+      - [State Constraints Check]: check if the [State] satisfies the [Detailed Constraints for State].
+      - Re-predict the [State] until a new [State] that passes [State Constraints Check] is obtained. You can try 2-nd, 3-rd, 4-th ... Plan to get the final [State].
+  + [State Output]: output the final state in the format of [Detailed Constraints for State].
+You can take the [Prediction Example] as a reference. This example only contains the outputted state.
+[Prediction Example]
+Example#1: 
+[State]
+[Cube States]
+blue_square is on panel7
+pink_polygon is on panel1
+yellow_trapezoid is on panel3
+
+[Action]
+EXECUTE
+NAME Alice ACTION PICK pink_polygon PLACE panel3
+NAME Bob ACTION WAIT
+NAME Chad ACTION WAIT
+
+[Prediction]
+[Cube States]
+blue_square is on panel7
+pink_polygon is on panel3
+yellow_trapezoid is on panel3
+
+
+
+The following lists the [State Space Definition].
+[State Space Definition] begin
+Define the state of the multi-agent system, which is composed of one category: [Cube States].
+1. [Cube States]: Describe the status of the following three cube items: blue_square, pink_polygon, yellow_trapezoid.
+2. The cube items must be listed in this order: blue_square, pink_polygon, yellow_trapezoid.
+
+[State Template]
+[State]
+[Cube States]
+blue_square is on <location>
+pink_polygon is on <location>
+yellow_trapezoid is on <location>
+
+[State Output Instructions]
+1. The [State] should follow the following formatting requirements:
+  1) A header titled [State]. 
+  2) A header titled [Cube States]. Then, list the Cube States. 
+    + Each line represents the state of one cube item.
+    + The cube items must be listed in this order: blue_square, pink_polygon, yellow_trapezoid.
+    + Each line should be formatted as follows: "<item_name> is on <panel_name>", for example, "blue_square is on panel1". Don't substitute "on" with "in".
+
+[State Prediction Instructions]
+1. List Alice's action: []. List the [Cube States] after Alice's action: [].
+2. List Bob's action: []. List the [Cube States] after Bob's action: [].
+3. List Chad's action: []. List the [Cube States] after Chad's action: [].
+4. Conclude the [Cube States] predicting result according to the format specified in [State Output Instructions].
+5. Conclude the [State] in the format of [Detailed Constraints for State].
+
+[Detailed Constraints for State]
+You should specify the [State] according to the following constrains. A state is reasonable if it does not break the constraints one-by-one and step-by-step.
+1. List the lines of [Cube States]: []. Count the number: [], and check if it is equal to three. There must be three lines of [Cube States].
+2. List the cube items and their locations: []. Check if their locations are one of the following terms: 
+  + on panel1
+  + on panel2
+  + on panel3
+  + on panel4
+  + on panel5
+  + on panel6
+  + on panel7
+3. List the locations of the cubes: []. It is not allowed to have two cubes on the same panel. Check if they satisfy constraints.
+3. List the locations of the cubes: []. The panel name should not contain " " in the middle. For example, use "panel2" instead of "panel 2". Check if they satisfy constraints.
+
+Note: The system includes three cube items and seven panels by default. 
+
+[Example States]
+Example#1:
+[State]
+[Cube States]
+blue_square is on panel3
+pink_polygon is on panel7
+yellow_trapezoid is on panel1
+
+[Prediction Mistakes]
+No prediction mistakes.
+
+Follow the [Predicting Instruction] strictly and think step-by-step.Now, you should predict the next [State] after the following [Action] is applied to the given [State]. You have to follow the instructions strictly rather than your own thoughts.
+[State]
+[Cube States]
+blue_square is on panel3
+pink_polygon is on panel5
+yellow_trapezoid is on panel7
+
+EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION PICK pink_polygon PLACE panel4
+NAME Chad ACTION PICK yellow_trapezoid PLACE panel6
+

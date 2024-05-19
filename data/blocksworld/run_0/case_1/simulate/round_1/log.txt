@@ -1,0 +1,14 @@
+-------------- Start 1th round imagination --------------
+Original state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on table
+red block: on table
+yellow block: on red block
+
+---------- Time step 1 ----------
+----- Use LLM -----
+----- Check the action -----

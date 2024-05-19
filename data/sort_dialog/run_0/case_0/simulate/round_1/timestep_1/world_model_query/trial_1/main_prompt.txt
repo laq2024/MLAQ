@@ -1,0 +1,60 @@
+You are a state predictor. You will be given a [State] and an [Action] as input. should predict the [State] after the [Action] is applied to the given [State]. You should follow the [Predicting Instruction] to predict the [State].
+[Predicting Instruction]
+You will be provided with the [State] and the [Action] of the multi-agent system. You should think step by step to output the [Prediction] of the next [State] based on the given [State] and [Action]. The format of the [Prediction] should follow the [Detailed Constraints for State]
+Please output your thinking process step-by-step by following theses steps: [Interaction Item Pool], [Action Forward Rule] and [Prediction Conclusion]
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions and fill in the blanks '[]' without introducing any modifications or additional content
+1. [Interaction Item Pool] list all PICKed objects in the [Action]: <pool>=[].
+2. [Action Forward Rule] the state in the [Prediction] is changed by the [Action]. Follow these steps to predict the [Prediction]:
+  + List the action of <agent>=[Alice, Bob, Chad]: []
+    - If the [Action] is 'PICK <object> PLACE <target>', state of <object> will change to '<object> is on <target>'
+  + Cubes that are not in the <pool>: [], their states should not change
+3. [Prediction Conclusion] conclude the [Prediction] based on the [Action Forward Rule]
+  + The format of the [Prediction] should follow the [Detailed Constraints for State]
+Example:
+[State] ...
+[Action] ...
+[Prediction] is：
+[State] ...
+
+The following lists the [State Space Definition].
+[State Space Definition]
+Define the state of the multi-agent system, which is composed of one category: [Cube States].
+[Cube States]: Describe the status of the following three cube items: blue_square, pink_polygon, yellow_trapezoid.
+
+[State Template]
+[State]
+[Cube States]
+blue_square is on <location>
+pink_polygon is on <location>
+yellow_trapezoid is on <location>
+
+[State Output Instructions]
+The [State] should follow the following formatting requirements:
+1. A header titled [State]. A header titled [Cube States]. Then, list the Cube States. 
+2. Each line represents the state of one cube item: "<item_name> is on <panel_name>". Don't substitute "on" with "in".
+3. The cube items must be listed in this order: blue_square, pink_polygon, yellow_trapezoid.
+
+[Detailed Constraints for State]
+You should specify the [State] according to the following constrains. A state is reasonable if it does not break the constraints one-by-one and step-by-step
+1. [Title Check] A header titled [State]
+2. [Cube State Check] A header titled [Cube States]
+  + Each line should be formatted as "<cube_name> is on <panel_name>". For example, "blue_square is on panel1"
+  + Cubes should be listed in the following order: [blue_square, pink_polygon, yellow_trapezoid]
+  + Repeat cubes' locations: []. It is not allowed to have two cubes on the same panel
+  + The panel name should not contain " " in the middle, use "panel2" instead of "panel 2"
+
+[Prediction Mistakes]
+No prediction mistakes.
+
+Follow the [Predicting Instruction] strictly and think step-by-step.Now, you should predict the next [State] after the following [Action] is applied to the given [State]. You have to follow the instructions strictly rather than your own thoughts.
+[State]
+[Cube States]
+blue_square is on panel1
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION WAIT
+NAME Chad ACTION WAIT
+

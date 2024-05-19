@@ -1,0 +1,164 @@
+You are a centralized planner. You have received a [State] from the external environment. Now, you need to output an action to reach the target [State] from current [State]. Follow the [Detailed Instruction for Policy] strictly.
+[Detailed Instruction for Policy]
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions and fill in the blanks '[]' without introducing any modifications or additional content. 
+1. You should think step by step, and make sure the [Action] does not break the [Detailed Constraints for Action].
+2. Follow the [Task Description] Carefully. You should follow the task description to plan the [Action].
+3. You should follow the [Recipe Order] to plan the [Action]. The format of action is described in [Detailed Constraints for Action].
+4. You should output your thinking process step-by-step in the following order. You have to follow these steps one by one to plan the [Action]: [Action Planning], [Action Conclusion], [Action Constraints Check], [Forbidden Action Check], and [Action Output].
++ [1. Action Planning]: First output [Action Planning], then follow the [Action Planning Instructions] to plan the [Action] of the multi-agent system step by step and list the thinking process.
++ [2. Action Conclusion]: Conclude the [Action] in the format of [Detailed Constraints for Action].
++ [3. Action Constraints Check]: Follow the steps in [Detailed Constraints for Action] to check the [Action] step by step.
++ [4. Action Revise]: If there is no incorrect checking result in the [Action Constraints Check], you can pass to the [Forbidden Action Check]. Otherwise, you should revise the action. Take the feedback from [Action Constraints Check] into consideration, and follow these steps to revise the action: [New Action Planning] and [New Action Constraints Check].
+  - Run a loop to execute the [Action Planning], [Action Constraints Check], and [Action Revise] until the [Action] is correct.
++ [5. Forbidden & Mistake Action Check]: I will provide some forbidden joint actions, and the robots cannot choose the forbidden and mistake actions. Note that what is forbidden are the joint actions of the multi-agent system, rather than the single agent actions that appear in these joint actions.
+  - list the chosen action.
+  - repeat all actions and feedbacks in the [Forbidden Actions], [Policy Mistakes], and [Temporary Mistakes]: [[action, feedback], ...]
+  - check if the [Action] is in the [Temporary Mistakes] one by one. If so, you should first judge whether the [Action] is correct or not. If the [Action] is correct, you can pass to the [Action Output] part. Otherwise, you should revise the [Action] step by step.
+  - check if the [Action] is in the [Forbidden Actions] or [Policy Mistakes] one by one.
+  If the [Action] is not in the [Forbidden Actions] and [Policy Mistakes]:
+    - Pass to the [Action Output] part.
+  Else:
+    - Follow these instructions to plan a new [Actions] step by step and list the thinking process:
+      - Go back to a new [Action Planning] and [Action Constraints Check] process again. You should note that what is forbidden are the joint actions rather than the single agent actions that appear in these joint actions. Therefore, the individual actions of each agent in the [Forbidden Actions] can still be chosen.
+      - [Forbidden Action Check]: check if the [Action] satisfies the [Detailed Constraints for Action].
+      - Re-plan the [Action] until a new [Action] is obtained or there is no available action anymore. You can try 2-nd, 3-rd, 4-th ... Plan to get the final [Action].
++ [6. Action Output]: output the final action in the format of [Detailed Constraints for Action]. If there is no available action anymore, output [ERROR] to denote that there is no available action anymore.
+
+You can take the [Plan Example] as a reference. This example only contains the outputted action.
+[Plan Example]
+Example#1:
+[Original State]
+[Food States]
+bread_slice1: on left side
+bread_slice2: on right side
+bacon: on left side
+cheese: on right side
+tomato: on right side
+cucumber: on right side
+ham: on left side
+beef_patty: on left side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is empty
+
+[Target State]
+[Food States]
+bread_slice1: atop cutting_board
+bread_slice2: on right side
+bacon: on left side
+cheese: atop ham
+tomato: on right side
+cucumber: on right side
+ham: atop bread_slice1
+beef_patty: on left side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is empty
+
+[Action]
+EXECUTE
+NAME Chad ACTION PICK cheese 
+NAME Dave ACTION PICK bread_slice1
+
+
+
+The following lists the [Task Description], [State Space Definition], and [Action Space Definition]. 
+[Task Description]
+Task: Cooperative Cooking in a Multi-Agent System
+
+Agents: Chad and Dave
+Chad - Can only PICK food items from the right side of the table.
+Dave - Can only PICK food items from the left side of the table.
+
+Objective: Collaboratively prepare a meal named "[vegetarian_sandwich]". The food items of target state must be assembled in the following sequence: [Recipe Order]=[bread_slice1, tomato, cheese, cucumber, bread_slice2]. 
+
+[State Space Definition]
+Define the state of the multi-agent system, which is composed of two categories: [Food States] and [Robot States]
+1. [Food States]: Describe the status of the following eight food items: bread_slice1, bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty
+  + The food items must be listed in this order: bread_slice1, bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty
+2. [Robot States]: Specify the current status of each robot's gripper
+
+[State Template]
+[State]
+[Food States]
+bread_slice1: <food state>
+bread_slice2: <food state>
+bacon: <food state>
+cheese: <food state>
+tomato: <food state>
+cucumber: <food state>
+ham: <food state>
+beef_patty: <food state>
+[Robot States]
+1. Chad's gripper is <gripper state>
+2. Dave's gripper is <gripper state>
+
+[Detailed Constraints for State]
+The following paragraphs are the detailed constraints for State. There are three main <check items>: [Title Check], [Food State Check], and [Robot State Check]
+1. [Title Check] A header titled [State]
+2. [Food State Check] A header titled [Food States]. Then, list the Food States
+  + Each line represents the state of one food item
+  + The food items must be listed in this order: [bread_slice1, bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty]
+  + The <food state> specify the location of each food item. The <food item> can only be one of these states:
+    - on right side
+    - on left side
+    - atop [another food item or cutting_board]
+    - gripped by [robot name]
+3. [Robot State Check] A header titled [Robot States]. Then, list the Robot States
+  + Each line represents the state of one robot's gripper
+  + Each robot's gripper can be in one of two states: 'empty', or 'holding [food item]'
+
+Note: The system includes eight food items and one cutting board by default
+[Action Options]
+1) PICK <obj>, Only PICK if gripper is empty. PICK only the correct next item according to the recipe. PICK the food item only if the food item's state is not 'atop <obj>'
+2) PUT <obj1> <obj2>. <obj1> can be one of the foods. <obj2> can be food or cutting_board
+3) WAIT, do nothing
+Only one robot can PUT each round. You must PICK up an item before PUT
+[Action Output Instruction]
+Must first output 'EXECUTE
+', then give exactly one action per robot, put each on a new line
+Example#1: 'EXECUTE
+NAME Chad ACTION PUT bread_slice1 cutting_board
+NAME Dave ACTION PICK tomato
+'
+Example#2: 'EXECUTE
+NAME Chad ACTION WAIT
+NAME Dave ACTION PUT cheese tomato
+'
+1. The line of the actions should be less than or equal to two. The first agent should be Chad and the second agent should be Dave
+2. The number of WAIT should be less than or equal to one. The number of PUT should be less than or equal to one
+3. PUT <obj2> only if the state of <obj2> is 'atop [food item or cutting_board]' and no other food item is 'atop <obj2>'
+[Policy Mistakes]
+No policy mistakes.
+Now, output your action below. You should follow the [Detailed Instruction for Policy] strictly and think step-by-step to plan the action.
+[Forbidden Actions]
+No forbidden actions.
+You should try your best to output an action that is not in the list above. Now you should output your action according to the following current state and target state. 
+[Plan]
+[State]
+[Food States]
+bread_slice1: gripped by Dave
+bread_slice2: on left side
+bacon: on left side
+cheese: on left side
+tomato: gripped by Chad
+cucumber: on right side
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is holding tomato
+2. Dave's gripper is holding bread_slice1
+
+[Target State]
+[Food States]
+bread_slice1: atop cutting_board
+bread_slice2: atop cucumber
+bacon: on left side
+cheese: atop tomato
+tomato: atop bread_slice1
+cucumber: atop cheese
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is empty

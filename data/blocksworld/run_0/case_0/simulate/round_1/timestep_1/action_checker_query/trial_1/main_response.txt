@@ -1,0 +1,33 @@
+[Repeat current State]: 
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on orange block
+
+[Repeat action]: 
+EXECUTE
+UNSTACK yellow block
+
+[Checker Instruction]
+1. [Action Constraints Check]
+   a. [Basic Check]
+      - List the line of the actions: [UNSTACK yellow block]. There must be one line of actions. Count the number: [1]. Check if it is equal to one: [yes]. If yes, action is correct; otherwise incorrect. Conclusion: [yes].
+      - List the action: [UNSTACK yellow block]. Actions aside from these are not allowed. Check if the action is one of "PICK UP", "UNSTACK", "PUT DOWN" and "STACK ON": [yes]. If yes, action is correct; otherwise incorrect. Conclusion: [yes].
+
+   b. [UNSTACK Check]
+      - List the state of your hand: [Empty]. Your hand must be empty. Check if your hand is empty: [yes]. If yes, action is correct; otherwise incorrect. Conclusion: [yes].
+      - List the <object> of UNSTACK: [yellow block]. <object>'s state must be on another block. List the state of <object>: [on orange block]. Check if the <object> is 'on <another block>': [yes]. If yes, action is correct; otherwise incorrect. Conclusion: [yes].
+      - List the <object> of UNSTACK: [yellow block]. No <object>'s state can be 'on <object>'. Repeat current State: [blue block: on table, orange block: on blue block, red block: on table, yellow block: on orange block]. In the repeated current state, list the blocks whose state is 'on <target>': [none]. List the state of the above block: [], check again if the state of the above block is 'on <target>': []. If check is passed, count the number of above blocks: [0]. Check if the number is zero: [yes]. If yes, action is correct; otherwise incorrect. Conclusion: [yes].
+
+2. [Temporary Conclusion]
+   The action "UNSTACK yellow block" is valid based on the current state.
+
+3. [Conclusion Justification]
+   The checking process above is complete and the temporary conclusion is correct.
+
+4. [Checker Conclusion]
+   The action is valid. [VALID]

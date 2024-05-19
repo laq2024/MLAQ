@@ -1,0 +1,1 @@
+{"success_token": {"input_token": [8485], "output_token": [1745]}, "success_memory_ratio": {"llm_count": [1], "memory_count": [1]}, "converge_token": {"input_token": [8485], "output_token": [1745]}, "converge_memory_ratio": {"llm_count": [1], "memory_count": [1]}, "end_step": 1}

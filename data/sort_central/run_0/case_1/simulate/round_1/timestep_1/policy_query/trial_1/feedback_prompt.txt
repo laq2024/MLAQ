@@ -1,0 +1,46 @@
+Here is the feedback from an action checker. 
+[--- Begin ---]
+[Start]
+* Get PICKed objects: <pool1>=[]
+
+1. [Line Number Check] The line of the actions should be equal to three: [yes]. Line conclusion: [yes]
+
+2. [Agent Order Check] The order of the agents' actions should be Alice, Bob, Chad: [yes]. Line conclusion: [yes]
+
+3. [WAIT Number Check] The number of WAIT actions should be less than or equal to two: [yes]. Line conclusion: [yes]
+
+4. [PICK Object Check] Repeat <pool1>=[], there should not have duplicate objects: [yes]. Line conclusion: [yes]
+
+5. [PLACE Target Check] Get all PLACE target panels: [panel2, panel4, panel6], there should not have duplicate targets: [yes]. Line conclusion: [yes]
+
+6. [PICK & PLACE Constraints] For simplicity, we use <agent> to denote the agent's name: [Alice, Bob, Chad]. When checking, please replace <agent> with the real agent's name.
+  + If <agent>'s action is PICK PLACE: [yes], repeat <agent>'s reach range: <zone>-<agent>=[panel...]
+
+6.1 [PICK & PLACE Constraints] For Alice's action: [PICK blue_square PLACE panel2], repeat Alice's reach range: <zone>-Alice=[panel1, panel2, panel3]
+
+6.1.a [PICK Range Check] Repeat <object>: [blue_square], location of <object>: <location>=[panel3]. <location> should in <zone>-Alice: [yes]. Line conclusion: [yes]
+
+6.1.b [PLACE Range Check] Repeat <target>: [panel2]. <target> should in the <zone>-Alice: [yes]. Line conclusion: [yes]
+
+6.1.c [PLACE Target Check] Repeat <target>: [panel2], object whose state is 'is on <target>': <X-object>=[], <pool1>=[blue_square]. <X-object> should be empty: [yes] or in <pool1>: [yes]. Line conclusion: [yes]
+
+6.2 [PICK & PLACE Constraints] For Bob's action: [PICK pink_polygon PLACE panel4], repeat Bob's reach range: <zone>-Bob=[panel3, panel4, panel5]
+
+6.2.a [PICK Range Check] Repeat <object>: [pink_polygon], location of <object>: <location>=[panel5]. <location> should in <zone>-Bob: [yes]. Line conclusion: [yes]
+
+6.2.b [PLACE Range Check] Repeat <target>: [panel4]. <target> should in the <zone>-Bob: [yes]. Line conclusion: [yes]
+
+6.2.c [PLACE Target Check] Repeat <target>: [panel4], object whose state is 'is on <target>': <X-object>=[], <pool1>=[blue_square, pink_polygon]. <X-object> should be empty: [yes] or in <pool1>: [yes]. Line conclusion: [yes]
+
+6.3 [PICK & PLACE Constraints] For Chad's action: [PICK yellow_trapezoid PLACE panel6], repeat Chad's reach range: <zone>-Chad=[panel5, panel6, panel7]
+
+6.3.a [PICK Range Check] Repeat <object>: [yellow_trapezoid], location of <object>: <location>=[panel7]. <location> should in <zone>-Chad: [yes]. Line conclusion: [yes]
+
+6.3.b [PLACE Range Check] Repeat <target>: [panel6]. <target> should in the <zone>-Chad: [yes]. Line conclusion: [yes]
+
+6.3.c [PLACE Target Check] Repeat <target>: [panel6], object whose state is 'is on <target>': <X-object>=[], <pool1>=[blue_square, pink_polygon, yellow_trapezoid]. <X-object> should be empty: [yes] or in <pool1>: [yes]. Line conclusion: [yes]
+
+[Conclusion] All constraints are satisfied. The actions are valid.
+[--- End ---]
+Please read the feedback carefully and help to summarize it. Please provide the feedback in a more concise manner. 
+If the feedback says that the action is valid, please output [VALID]; otherwise, please output [ERROR] and provide the reason. 

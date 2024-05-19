@@ -1,0 +1,80 @@
+You are a state predictor. You will be given a [State] and an [Action] as input. should predict the [State] after the [Action] is applied to the given [State]. You should follow the [Predicting Instruction] to predict the [State].
+[Predicting Instruction]
+You will be provided with the [State] and the [Action] of the multi-agent system. You should think step by step to output the [Prediction] of the next [State] based on the given [State] and [Action]. The format of the [Prediction] should follow the [Detailed Constraints for State]
+Please output your thinking process step-by-step by following theses steps: [Interaction Item Pool], [Action Forward Rule] and [Prediction Conclusion]
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions and fill in the blanks '[]' without introducing any modifications or additional content
+1. [Interaction Item Pool]: initialize the pool of the food items that the robots are interacting with. It is a empty list at the beginning: pool={}
+2. [Action Forward Rule]: the state in the [Prediction] is changed by the [Action]. Follow these steps to predict the [Prediction]:
+  + List the action of <agent>=[Chad and Dave]: []
+    - For WAIT, the state of <agent> should not change
+    - For PICK, repeat action: [], <obj>: [], <agent>: []. State of <agent> should be '<agent>'s gripper is holding <obj>'. State of the <obj> should be 'gripped by <agent>'. Add <obj> to the pool: pool=[]
+    - For PUT, repeat action: [], <obj1> :[], <obj2>: []. State of <agent> should be '<agent>'s gripper is empty'. State of the <obj1> should be 'atop <obj2>'. Add <obj1> to the pool: pool=[]
+3. [Prediction Conclusion]: conclude the [Prediction] based on the [Action Forward Rule]
+  + The format of the [Prediction] should follow the [Detailed Constraints for State]
+  + The food items that are not present in the pool should not change their state
+Example:
+[State] ...
+[Action] ...
+[Prediction] is：
+[State] ...
+
+The following lists the [State Space Definition].
+[State Space Definition]
+Define the state of the multi-agent system, which is composed of two categories: [Food States] and [Robot States]
+1. [Food States]: Describe the status of the following eight food items: bread_slice1, bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty
+  + The food items must be listed in this order: bread_slice1, bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty
+2. [Robot States]: Specify the current status of each robot's gripper
+
+[State Template]
+[State]
+[Food States]
+bread_slice1: <food state>
+bread_slice2: <food state>
+bacon: <food state>
+cheese: <food state>
+tomato: <food state>
+cucumber: <food state>
+ham: <food state>
+beef_patty: <food state>
+[Robot States]
+1. Chad's gripper is <gripper state>
+2. Dave's gripper is <gripper state>
+
+[Detailed Constraints for State]
+The following paragraphs are the detailed constraints for State. There are three main <check items>: [Title Check], [Food State Check], and [Robot State Check]
+1. [Title Check] A header titled [State]
+2. [Food State Check] A header titled [Food States]. Then, list the Food States
+  + Each line represents the state of one food item
+  + The food items must be listed in this order: [bread_slice1, bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty]
+  + The <food state> specify the location of each food item. The <food item> can only be one of these states:
+    - on right side
+    - on left side
+    - atop [another food item or cutting_board]
+    - gripped by [robot name]
+3. [Robot State Check] A header titled [Robot States]. Then, list the Robot States
+  + Each line represents the state of one robot's gripper
+  + Each robot's gripper can be in one of two states: 'empty', or 'holding [food item]'
+
+Note: The system includes eight food items and one cutting board by default
+[Prediction Mistakes]
+No prediction mistakes.
+
+Follow the [Predicting Instruction] strictly and think step-by-step.Now, you should predict the next [State] after the following [Action] is applied to the given [State]. You have to follow the instructions strictly rather than your own thoughts.
+[State]
+[Food States]
+bread_slice1: gripped by Dave
+bread_slice2: on left side
+bacon: on left side
+cheese: on left side
+tomato: on right side
+cucumber: on right side
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is holding bread_slice1
+
+EXECUTE
+NAME Chad ACTION WAIT
+NAME Dave ACTION PUT bread_slice1 cutting_board
+

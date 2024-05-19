@@ -1,0 +1,50 @@
+-------------- Start testing case 0 --------------
+Initial state: [State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on orange block
+
+Target state: [State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block
+
+------ Step 0 ------
+Action: 
+EXECUTE
+UNSTACK yellow block
+
+State: 
+[State]
+[Hand State]
+Holding yellow block
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: in hand
+
+------ Step 1 ------
+Action: 
+EXECUTE
+STACK yellow block ON red block
+
+State: 
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block
+
+Run finished after 2 timesteps

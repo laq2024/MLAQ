@@ -1,0 +1,2 @@
+EXECUTE
+STACK yellow block ON red block

@@ -1,0 +1,37 @@
+[Repeat current State]: [Hand State: Empty; Block States: blue block: on table, orange block: on blue block, red block: on table, yellow block: on orange block].
+[Repeat action]: [UNSTACK yellow block].
+
+[Interaction Item Pool]: initialize the pool of the blocks that the agent is interacting with. It is an empty list at the beginning: pool={}.
+[Action Forward Rule]: List the action: [UNSTACK yellow block], the state in the [Prediction] is changed by the [Action]. Follow these steps to predict the [Prediction]:
++ If the action is "PICK UP" or "UNSTACK", list the <object> of action: [yellow block]. The state of <object> in the [Prediction] should be changed to "in hand". The state of your hand in the [Prediction] should be changed to "Holding yellow block". Add <object> to the pool: pool=[yellow block].
+
+[Prediction Conclusion]: conclude the [Prediction] based on the [Action Forward Rule]. Please output the [Prediction] in the format of [State Space Definition] at the end of this part.
+The format of the [Prediction] should follow the [Detailed Constraints for State].
+
+[State]
+[Hand State]
+Holding yellow block
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: in hand
+
+[Block State Consistency Check]: check if the block states are consistent with the action.
++ Repeat the full block list: [blue block, orange block, red block, yellow block].
++ Repeat the pool: [yellow block], and remove the items in the pool from the full block list: [blue block, orange block, red block].
++ List the state of the remaining blocks in the above list: [blue block: on table, orange block: on blue block, red block: on table].
++ Repeat the [Prediction]. List the [Prediction]'s block state in the above list: [blue block: on table, orange block: on blue block, red block: on table]. Check if the blocks' states in the [Prediction] are consistent with the [State]: [yes]. If yes, the [Prediction] is correct; otherwise incorrect. Conclusion: [yes].
+
+[Prediction Justification]: check the [Prediction] AGAIN based on the [Action Forward Rule] and the [Block State Consistency Check]. The [Prediction] is correct because the action of unstacking the yellow block from the orange block if followed precisely has led to the yellow block being in hand and the states of the other blocks remain unchanged. 
+
+[Conclusion]: conclude your thinking process to output the [Prediction] in the format of [State Space Definition]. This part only contains the outputted [Prediction].
+
+[State]
+[Hand State]
+Holding yellow block
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: in hand

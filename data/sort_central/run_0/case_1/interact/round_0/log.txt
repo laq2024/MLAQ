@@ -1,0 +1,26 @@
+-------------- Start testing case 0 --------------
+Initial state: [State]
+[Cube States]
+blue_square is on panel3
+pink_polygon is on panel5
+yellow_trapezoid is on panel7
+
+Target state: [State]
+[Cube States]
+blue_square is on panel2
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+------ Step 0 ------
+Action: 
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION PICK pink_polygon PLACE panel4
+NAME Chad ACTION PICK yellow_trapezoid PLACE panel6
+State: 
+[State]
+[Cube States]
+blue_square is on panel2
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+Run finished after 1 timesteps

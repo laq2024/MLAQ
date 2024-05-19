@@ -1,0 +1,38 @@
+[Repeat current State]: [Hand State] Holding yellow block [Block States] blue block: on table orange block: on blue block red block: on table yellow block: in hand.
+
+[Repeat action]: EXECUTE STACK yellow block ON red block.
+
+[Interaction Item Pool]: initialize the pool of the blocks that the agent is interacting with. It is a empty list at the beginning: pool={}.
+
+[Action Forward Rule]: List the action: STACK yellow block ON red block, the state in the [Prediction] is changed by the [Action]. Follow these steps to predict the [Prediction]:
+  + If the action is "STACK ON", list the <object> of action: yellow block, and <target> of action: red block. The state of yellow block in the [Prediction] should be changed to "on red block". The state of your hand in the [Prediction] should be changed to "Empty". Add yellow block to the pool: pool={yellow block}.
+
+[Prediction Conclusion]: conclude the [Prediction] based on the [Action Forward Rule].
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block
+
+[Block State Consistency Check]: check if the block states are consistent with the action.
+  + Repeat the full block list: [blue block, orange block, red block, yellow block].
+  + Repeat the pool: {yellow block}, and remove the items in the pool from the full block list: [blue block, orange block, red block].
+  + List the state of the remaining blocks in the above list: [blue block: on table, orange block: on blue block, red block: on table].
+  + Repeat the [Prediction]. List the [Prediction]'s block state in the above list: [blue block: on table, orange block: on blue block, red block: on table]. Check if the blocks' states in the [Prediction] are consistent with the [State]: [yes]. Conclusion: correct.
+
+[Prediction Justification]: check the [Prediction] AGAIN based on the [Action Forward Rule] and the [Block State Consistency Check]. If the [Prediction] is incorrect, justify the mistake and correct it.
+
+[Conclusion]: conclude your thinking process to output the [Prediction] in the format of [State Space Definition].
+
+[Prediction]
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block

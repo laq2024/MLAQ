@@ -1,0 +1,92 @@
+-------------- Start 1th round imagination --------------
+Original state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on orange block
+
+---------- Time step 1 ----------
+----- Use LLM -----
+----- Check the action -----
+----- Imagine the transition -----
+----- Check the prediction -----
+-------------- Start 1th round imagination --------------
+Original state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on orange block
+
+---------- Time step 1 ----------
+----- Use LLM -----
+----- Check the action -----
+----- Imagine the transition -----
+----- Check the prediction -----
+-------------- Start 1th round imagination --------------
+Original state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on orange block
+
+---------- Time step 1 ----------
+----- Use LLM -----
+----- Check the action -----
+The action is valid because it is in the full memory.
+Transition exists. Use the existing transition.
+
+Imagination step 1:
+EXECUTE
+UNSTACK yellow block
+
+[State]
+[Hand State]
+Holding yellow block
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: in hand
+
+---------- Time step 2 ----------
+----- Use LLM -----
+----- Check the action -----
+----- Imagine the transition -----
+----- Check the prediction -----
+Imagination step 2:
+EXECUTE
+STACK yellow block ON red block
+
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block
+
+Imagination reaches the target state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: on red block
+
+-------------- End 1th round imagination --------------
+

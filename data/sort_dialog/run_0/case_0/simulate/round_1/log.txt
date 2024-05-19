@@ -1,0 +1,34 @@
+-------------- Start 1th round imagination --------------
+Original state:
+[State]
+[Cube States]
+blue_square is on panel1
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+---------- Time step 1 ----------
+----- Use LLM -----
+----- Check the action -----
+----- Imagine the transition -----
+----- Check the prediction -----
+Imagination step 1:
+EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION WAIT
+NAME Chad ACTION WAIT
+
+[State]
+[Cube States]
+blue_square is on panel2
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+Imagination reaches the target state:
+[State]
+[Cube States]
+blue_square is on panel2
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+-------------- End 1th round imagination --------------
+

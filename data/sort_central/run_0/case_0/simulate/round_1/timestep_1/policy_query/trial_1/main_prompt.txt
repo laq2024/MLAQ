@@ -1,0 +1,220 @@
+You are a centralized planner. You have received a [State] from the external environment. Now, you need to output an action to reach the target [State] from current [State]. Follow the [Detailed Instruction for Policy] strictly.
+[Detailed Instruction for Policy]
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions and fill in the blanks '[]' without introducing any modifications or additional content. 
+1. You should think step by step, and make sure the [Action] does not break the [Detailed Constraints for Action].
+2. Follow the [Task Description] Carefully. You should follow the task description to plan the [Action].
+3. You should follow the [Recipe Order] to plan the [Action]. The format of action is described in [Detailed Constraints for Action].
+4. You should output your thinking process step-by-step in the following order. You have to follow these steps one by one to plan the [Action]: [Action Planning], [Action Conclusion], [Action Constraints Check], [Forbidden Action Check], and [Action Output].
++ [1. Action Planning]: First output [Action Planning], then follow the [Action Planning Instructions] to plan the [Action] of the multi-agent system step by step and list the thinking process.
++ [2. Action Conclusion]: Conclude the [Action] in the format of [Detailed Constraints for Action].
++ [3. Action Constraints Check]: Follow the steps in [Detailed Constraints for Action] to check the [Action] step by step.
++ [4. Action Revise]: If there is no incorrect checking result in the [Action Constraints Check], you can pass to the [Forbidden Action Check]. Otherwise, you should revise the action. Take the feedback from [Action Constraints Check] into consideration, and follow these steps to revise the action: [New Action Planning] and [New Action Constraints Check].
+  - Run a loop to execute the [Action Planning], [Action Constraints Check], and [Action Revise] until the [Action] is correct.
++ [5. Forbidden & Mistake Action Check]: I will provide some forbidden joint actions, and the robots cannot choose the forbidden and mistake actions. Note that what is forbidden are the joint actions of the multi-agent system, rather than the single agent actions that appear in these joint actions.
+  - list the chosen action.
+  - repeat all actions and feedbacks in the [Forbidden Actions], [Policy Mistakes], and [Temporary Mistakes]: [[action, feedback], ...]
+  - check if the [Action] is in the [Temporary Mistakes] one by one. If so, you should first judge whether the [Action] is correct or not. If the [Action] is correct, you can pass to the [Action Output] part. Otherwise, you should revise the [Action] step by step.
+  - check if the [Action] is in the [Forbidden Actions] or [Policy Mistakes] one by one.
+  If the [Action] is not in the [Forbidden Actions] and [Policy Mistakes]:
+    - Pass to the [Action Output] part.
+  Else:
+    - Follow these instructions to plan a new [Actions] step by step and list the thinking process:
+      - Go back to a new [Action Planning] and [Action Constraints Check] process again. You should note that what is forbidden are the joint actions rather than the single agent actions that appear in these joint actions. Therefore, the individual actions of each agent in the [Forbidden Actions] can still be chosen.
+      - [Forbidden Action Check]: check if the [Action] satisfies the [Detailed Constraints for Action].
+      - Re-plan the [Action] until a new [Action] is obtained or there is no available action anymore. You can try 2-nd, 3-rd, 4-th ... Plan to get the final [Action].
++ [6. Action Output]: output the final action in the format of [Detailed Constraints for Action]. If there is no available action anymore, output [ERROR] to denote that there is no available action anymore.
+
+You can take the [Plan Example] as a reference. This example only contains the outputted action.
+[Plan Example]
+Example#1:
+[Original State]
+[State]
+[Cube States]
+blue_square is on panel1
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+[Target State]
+[Cube States]
+blue_square is on panel2
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+[Action]
+EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION WAIT
+NAME Chad ACTION WAIT
+
+
+The following lists the [Task Description], [State Space Definition], and [Action Space Definition]. 
+[Task Description]
+Task: Cooperative Sorting in a Multi-Agent System
+
+Agents: Alice, Bob and Chad
+Alice - Can only PICK and PLACE cube items on zone1=[panel1, panel2, panel3].
+Bob - Can only PICK and PLACE cube items on zone2=[panel3, panel4, panel5].
+Chad - Can only PICK and PLACE cube items on zone3=[panel5, panel6, panel7].
+
+Objective: Collaboratively place the cubes on the panels as follows: place blue_square on panel2, place pink_polygon on panel4, place yellow_trapezoid on panel6. The cube items will be placed randomly on all panels of the table at the beginning of an episode. 
+
+Instructions:
+1. Agent can only perform actions described in [Action Space Definition]. Please do not imagine other actions.
+2. Some items can be beyond the reach range of certain agents. In this case, other agents might do it a favor by moving the item closer to it.
+3. This is a Markov Decision Process (MDP). There exists an external environment interacting with the agents. 
+
+NOTICE!!! The robots DO NOT need to perform actions one by one. They can perform actions simultaneously, as long as the actions do not conflict with each other.
+
+Constraints:
+1. The state of the multi-agent system must adhere to the prescribed [State Space Definition]! 
+2. Each agent selects one action from the provided [Action Space Definition]. 
+
+[State Space Definition] begin
+Define the state of the multi-agent system, which is composed of one category: [Cube States].
+1. [Cube States]: Describe the status of the following three cube items: blue_square, pink_polygon, yellow_trapezoid.
+2. The cube items must be listed in this order: blue_square, pink_polygon, yellow_trapezoid.
+
+[State Template]
+[State]
+[Cube States]
+blue_square is on <location>
+pink_polygon is on <location>
+yellow_trapezoid is on <location>
+
+[State Output Instructions]
+1. The [State] should follow the following formatting requirements:
+  1) A header titled [State]. 
+  2) A header titled [Cube States]. Then, list the Cube States. 
+    + Each line represents the state of one cube item.
+    + The cube items must be listed in this order: blue_square, pink_polygon, yellow_trapezoid.
+    + Each line should be formatted as follows: "<item_name> is on <panel_name>", for example, "blue_square is on panel1". Don't substitute "on" with "in".
+
+[State Prediction Instructions]
+1. List Alice's action: []. List the [Cube States] after Alice's action: [].
+2. List Bob's action: []. List the [Cube States] after Bob's action: [].
+3. List Chad's action: []. List the [Cube States] after Chad's action: [].
+4. Conclude the [Cube States] predicting result according to the format specified in [State Output Instructions].
+5. Conclude the [State] in the format of [Detailed Constraints for State].
+
+[Detailed Constraints for State]
+You should specify the [State] according to the following constrains. A state is reasonable if it does not break the constraints one-by-one and step-by-step.
+1. List the lines of [Cube States]: []. Count the number: [], and check if it is equal to three. There must be three lines of [Cube States].
+2. List the cube items and their locations: []. Check if their locations are one of the following terms: 
+  + on panel1
+  + on panel2
+  + on panel3
+  + on panel4
+  + on panel5
+  + on panel6
+  + on panel7
+3. List the locations of the cubes: []. It is not allowed to have two cubes on the same panel. Check if they satisfy constraints.
+3. List the locations of the cubes: []. The panel name should not contain " " in the middle. For example, use "panel2" instead of "panel 2". Check if they satisfy constraints.
+
+Note: The system includes three cube items and seven panels by default. 
+
+[Example States]
+Example#1:
+[State]
+[Cube States]
+blue_square is on panel3
+pink_polygon is on panel7
+yellow_trapezoid is on panel1
+
+[Action Space Definition]
+Detail the action space for each robot with the stipulated actions: PICK PLACE, WAIT. All robots are executing actions simultaneously, with no distinction in the order of their actions.
+- PICK <object> PLACE <target>: Execute if the gripper is empty. Pick up <object> and place it onto <target>, where <object> is a cube and <target> is a panel
+- WAIT: Do nothing.
+
+[Action Template]
+EXECUTE
+NAME Alice ACTION <action>
+NAME Bob ACTION <action>
+NAME Chad ACTION <action>
+
+[Action Output Instructions]
+1. Commence the output with 'EXECUTE
+'. Follow with one distinct action per robot on separate lines. 
+2. Alice's action should be listed first, followed by Bob's action, and then Chad's action.
+3. Agents' reach ranges are as follows:   
+  + Alice: zone1=[panel1, panel2, panel3]
+  + Bob: zone2=[panel3, panel4, panel5]
+  + Chad: zone3=[panel5, panel6, panel7]
+
+[Action Planning Instructions]
+Constraints: A robot can only do one action at a time. Do not choose the joint action listed in the [Forbidden Actions]. A robot can only PICK and PLACE items in its reach range specified in [Robot Reach Range], DO NOT try to PICK and PLACE items outside reach range. There can only be up to one object on a panel. Remember that all robots are executing actions simultaneously, with no distinction in the order of their actions.
++ [Tip 1]: if there is a cube on intersection (panel3 or panel5). You have to first move it to other empty panel (like panel1, panel7 ...). Note that the target panel must be empty.
+  - For example, if blue_square is on panel3 and you want to move pink_polygon from panel2 to panel4, you can first move blue_square to panel1 first and then move pink_polygon to panel3 and finally to panel4, thus avoiding collision.
++ [Tip 2]: move the objects to another zone through multiple movements by placing cubes at the intersection (panel3 and panel5). 
++ [Tip 3]: do not choose actions for each agent separately, and plan the action jointly by considering the multi-agent system as a whole.
++ [Tip 4]: try to merge the actions in [Forbidden Actions] to reduce the number of steps, but do not break the action constraints.
+Please output your thinking process step-by-step. You have to follow these steps one by one to plan the [Action]: [a. Recall], [b. Action Plan], and [c. Pre Action Conclusion].
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions to not omit any steps.
+[a. Recall] repeat the state as follows: [Repeat current State] and [Repeat target State]. 
+  + [Repeat current State]: [blue_square: [], pink_polygon: [], yellow_trapezoid: []]
+  + [Repeat target State]: [blue_square: [], pink_polygon: [], yellow_trapezoid: []]
+[b. Action Plan] follow these instructions to plan the [Action] of the multi-agent system and list the thinking process step-by-step: [Interactive Cubes], [Available Targets], [Tip Recall], and [Plan Process].
+  + [Interactive Cubes]
+    - repeat the zones' range: [zone1=[panel...], ..]. initial three empty pools: [pool1={{}}, pool2={{}}, pool3={{}}].
+    - for each cube, get the zones it belongs to, and add it into the pools: [cube -> state -> zone, pool=[pool1=[], pool2=[], ...]], e.g. [blue_square -> panel3 -> zone1&2, [pool1={{blue_square}}, pool2={{blue_square}}, pool3={{}}] ]
+    - repeat the pools: [pool1, ...]. for each robot, list the cubes in its zone: [robot -> pool -> cubes] (Alice<->pool1, Bob<->pool2, Chad<->pool3) ... only be listed in this list, the robot can pick the cubes. 
+  + [Occupied Panels]: list the occupied panels: []. the occupied panels cannot be robots' target, unless the cube on it will be picked by one robot in your planning action. 
+  + [Available Targets]: for each robot, repeat its reach range: [robot: zone=[panel ...]]. only be listed in this list, the robot can place cubes on it.
+  + [Tip Recall] Think about if the tips is available in this scenario one-by-on: []. Focus more on Tip 1 and its example, it is helpful for difficult tasks.
+    - [tip 1: ..., tip 2: ...]
+  + [Plan Process]
+    - Repeat [Interactive Cubes]: [robot -> cubes, ...]
+    - Repeat [Available Targets] by removing the panels in [Occupied Panels]: [robot -> panels, ...]
+    - For each robot, the picked item cannot out of the above [Interactive Cubes] and the target of its action cannot out of the above [Available Targets]. Now, follow [Action Output Instructions] to plan an [Action] without breaking [Detailed Constraints for Action]: []
+  + What is forbidden are the joint actions of the multi-agent system, the action of each agent that appears in these joint actions can be freely combined. 
+    - For example, if the forbidden joint action is [A, B], then the agents can perform [A] and [B] separately like [A, C] or [D, B], but they cannot perform [A] and [B] at the same time. 
+  + The WAIT is a good choice for you to handle the scenario where some actions are forbidden. But note that the WAIT action cannot be performed by all robots at the same time. 
+[c. Pre Action Conclude] Conclude the [Action] according to the [Action Planning] in the format of [Detailed Constraints for Action]. Conclusion should be in the order Alice, Bob, Chad.
+
+[Detailed Constraints for Action]
+[Robot Reach Range] Before showing the constraints, you should note that each robot has its own reach range, and it cannot PICK or PLACE items outside its reach range.
+  + Alice: zone1=[panel1, panel2, panel3]
+  + Bob: zone2=[panel3, panel4, panel5]
+  + Chad: zone3=[panel5, panel6, panel7]
+[Detailed Constraints] Then, you should follow the constraints one-by-one and step-by-step to check if the action is correct: [Basic Constraints] and [PICK & PLACE Constraints]. You have to follow these constraints strictly and do not have your own understanding of the constraints.
+Remember that all robots are executing actions simultaneously, with no distinction in the order of their actions.
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions and fill in the blanks '[]' without introducing any modifications or additional content.
+1. [Basic Constraints] Output "[Basic Check]" and do as follows:
+  + List the lines of the actions: []. Count the number: []. There must be three lines of actions. Check if it is equal to three: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + List the agents that perform WAIT: []. Count the number: []. The agents cannot all perform WAIT. Check if it is less than or equal to three: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + List the agents that perform PICK PLACE: []. List the <object> of PICK: []. Agents are not allowed to PICK <object> other than blue_square, pink_polygon, yellow_trapezoid. Check if all the <object> is one of blue_square, pink_polygon, yellow_trapezoid: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + List the agents that perform PICK PLACE: []. List the <object> of PICK: []. Agents are not allowed to PICK the same <object> at the same time. Check if the agents have the same <object> with each other: [yes/no]. If no, action is correct; otherwise incorrect. Conclusion: [].
+  + List the agents that perform PICK PLACE: []. List the <target> of PLACE: []. Agents are not allowed to PLACE objects on the same panel. Check if the agents have the same <target> with each other: [yes/no]. If no, action is correct; otherwise incorrect. Conclusion: [].
+2. [PICK & PLACE Constraints] Now, output "[PICK & PLACE Check]" and do as follows. All of this is [applicable], do not have your own understanding of the constraints.:
+  + For simplicity, we use [agent] to denote the agent's name: [Alice, Bob, Chad]. When checking, please replace [agent] with the real agent's name.
+    - List [agent]'s action: []. If it is PICK PLACE, repeat [agent]'s reach range: [panel...] and follow the instructions step by step: [PICK Range Check], [PLACE Range Check], and [PLACE Target Check].
+      a. [PICK Range Check] List the <object> of PICK: [], and the <location> of this <object> in the current state: []. Agents are not allowed to PICK objects out of its reach range. Check if the <location> is in the reach range ([agent]'s: [panel...]): [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+      b. [PLACE Range Check] List the <target> of PLACE: []. Agents are not allowed to PLACE objects out of its reach range. Check if the <target> is in the reach range ([agent]'s: [panel...]): [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+      c. [PLACE Target Check] List the <target> of PLACE: []. Agents are not allowed to PLACE objects on the panel that already has an object except it is PICKed by one of the agents at the current timestep. Follow this instruction:
+        - List the objects 'is on <target>' in the current state: pool1=[]. List the PICKed objects in the current state: pool2=[]. List the intersection of pool1 and pool2: pool3=[]. If pool3 is not empty, remove the objects in pool3 from pool1: pool1(after removal)=[]. Check if the pool1(after removal) is empty: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + For example: List Alice's action ... List Bob's action ... List Chad's action ...
+
+[Example Actions]
+Example: 'EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel3
+NAME Bob ACTION WAIT
+NAME Chad ACTION PICK yellow_trapezoid PLACE panel6
+'
+
+[Policy Mistakes]
+No policy mistakes.
+Now, output your action below. You should follow the [Detailed Instruction for Policy] strictly and think step-by-step to plan the action.
+[Forbidden Actions]
+No forbidden actions.
+You should try your best to output an action that is not in the list above. Now you should output your action according to the following current state and target state. 
+[Plan]
+[State]
+[Cube States]
+blue_square is on panel1
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+[Target State]
+[Cube States]
+blue_square is on panel2
+pink_polygon is on panel4
+yellow_trapezoid is on panel6

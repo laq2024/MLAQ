@@ -1,0 +1,104 @@
+There is a description of an action space description and the action space definition as follows:
+[----- Action Space Description Begin -----]
+[Action Space Definition]
+Detail the action space with the stipulated actions: PICK UP, UNSTACK, PUT DOWN, STACK ON.
+- PICK UP <object>: Execute if hand is empty, and <object> is on table and no block is on it. Pick up <object> from table. After execution, you will be holding the block.
+- UNSTACK <object>: Execute if hand is empty, <object> is on another block and no block is on it. UNSTACK <object> from another block. After execution, you will be holding the block.
+- PUT DOWN <object>: Execute if hand is holding <object>. Put down <object> on table. After execution, your hand will be empty.
+- STACK <object> ON <target>: Execute if hand is holding <object>, and no block is on <target>. Stack <object> on the top of <target>. After execution, your hand will be empty.
+
+[Action Template]
+EXECUTE
+<action>
+
+[Action Output Instructions]
+1. Commence the output with 'EXECUTE
+'. Follow with one action. 
+2. Don't add extra symbols at the end of each line, such as periods.
+
+[Action Planning Instructions]
+At first, you should first repeat the state as follows: [Repeat current State] and [Repeat target State].
+  + [Repeat current State]: [red block: [], blue block: [], orange block: [], yellow block: []; hand: []]
+  + [Repeat target State]: [red block: [], blue block: [], orange block: [], yellow block: []; hand: []]
+[Constraints]: You can only do one action at a time. Do not choose the action listed in the [Forbidden Actions].
+Please output your thinking process step-by-step. You have to follow these steps one by one to plan the [Action]: [Action Plan] and [Pre Action Conclusion].
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions to not omit any steps.
+a. [Action Plan] Plan the [Action] of the agent step by step and list the thinking process.
+  + Follow the [Action Output Instructions] and [Detailed Constraints for Action] to plan the [Action] of the agent. You can also take the following tips (Tips 1 and Tips 2) into consideration.
+  + [Tips 1]: If you want to PICK or UNSTACK a block with other blocks on it, you should first UNSTACK the blocks on top of it.
+  + [Tips 2]: Do not forget that when you are holding a block, you can only PUT DOWN or STACK ON it and you cannot PICK UP or UNSTACK other blocks.
+b. [Pre Action Conclude] Conclude the [Action] according to the [Action Planning] in the format of [Detailed Constraints for Action]. Conclusion should be in the order [hand; red block, blue block, orange block, yellow block].
+
+[Detailed Constraints for Action]
+[Detailed Constraints] Now, you should follow the constraints one-by-one and step-by-step to check if the action is correct: [Basic Check] and [Action Check].
+You have to follow these constraints strictly and do not have your own understanding of the constraints.
+The most important thing: Follow the instructions step-by-step and ensure each step is completed precisely. Repeat the instructions and fill in the blanks '[]' without introducing any modifications or additional content. You should also fill in the <object> and <target> with the correct block names when needed.
+1. [Basic Check] Please output "[Basic Check]" and do as follows:
+  + List the line of the actions: []. There must be one line of actions. Count the number: []. Check if it is equal to one: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + List the action: []. Actions asides from these are not allowed. Check if the action is one of "PICK UP", "UNSTACK", "PUT DOWN" and "STACK ON": [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+2. [Action Check] If action is "PICK UP", go to [PICK UP Check]; if action is "UNSTACK", go to [UNSTACK Check]; if action is "PUT DOWN", go to [PUT DOWN Check]; if action is "STACK ON", go to [STACK ON Check].
+  + [PICK UP Check] Please output "[PICK UP Check]" and do as follows:
+    a. List the state of your hand: []. Your hand must be empty. Check if your hand is empty: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    b. List the <object> of PICK UP: []. <object>'s state must be 'on table'. List the state of <object>: []. Check if the <object> is 'on table': [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    c. List the <object> of PICK UP: []. No <object>'s state can be 'on <object>'. In the repeated current state, list the blocks whose state is 'on <target>': []. List the state of the above block: [], check again if the state of the above block is 'on <target>': []. If check is passed, count the number of above blocks: []. Check if the number is zero: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + [UNSTACK Check] Please output "[UNSTACK Check]" and do as follows:
+    a. List the state of your hand: []. Your hand must be empty. Check if your hand is empty: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    b. List the <object> of UNSTACK: []. <object>'s state must be on another block. List the state of <object>: []. Check if the <object> is 'on <another block>': [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    c. List the <object> of UNSTACK: []. No <object>'s state can be 'on <object>'. Repeat current State: []. In the repeated current state, list the blocks whose state is 'on <target>': []. List the state of the above block: [], check again if the state of the above block is 'on <target>': []. If check is passed, count the number of above blocks: []. Check if the number is zero: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + [PUT DOWN Check] Please output "[PUT DOWN Check]" and do as follows:
+    a. List the state of your hand: []. Your hand cannot be empty. Check if your hand is holding <object>: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+  + [STACK ON Check] Please output "[STACK ON Check]" and do as follows:
+    a. List the state of your hand: []. Your hand cannot be empty. Check if your hand is holding <object>: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    b. List the <object> of STACK: []. <object> must be in your hand. List the state of <object>: [], and the state of your hand: []. Check if the <object> is in your hand: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+    c. List the <target> of ON: []. No <object>'s state can be 'on <target>'. Repeat current State: []. In the repeated current state, list the blocks whose state is 'on <target>': []. List the state of the above block: [], check again if the state of the above block is 'on <target>': []. If check is passed, count the number of above blocks: []. Check if the number is zero: [yes/no]. If yes, action is correct; otherwise incorrect. Conclusion: [].
+
+[Example Actions]
+Example#1: EXECUTE
+PICK UP orange block.
+
+Example#2: EXECUTE
+STACK blue block ON red block.
+
+.
+[----- Action Space Description End -----]
+Now, I will provide you the decision process of the agent as follows:
+[----- Decision Process Begin -----]
+[Action Planning]
+Repeat current State: [red block: on table, blue block: on table, orange block: on blue block, yellow block: on orange block; hand: Empty]
+Repeat target State: [red block: on table, blue block: on table, orange block: on blue block, yellow block: on red block; hand: Empty]
+
+The first observation is that the yellow block needs to be moved from on top of the orange block to on top of the red block. Before we can place the yellow block on the red block, we need to ensure our hand is empty and pick up the yellow block.
+
+Since the hand is empty and the yellow block is on top of the orange block, the first action we can plan is to UNSTACK the yellow block from the orange block.
+
+[Pre Action Conclude]
+hand: Empty; red block: on table, blue block: on table, orange block: on blue block, yellow block: on orange block
+
+[Action Conclusion]
+EXECUTE
+UNSTACK yellow block
+
+
+[Action Constraints Check]
+[Basic Check]
+List the line of the actions: [EXECUTE UNSTACK yellow block]. There must be one line of actions. Count the number: [1]. Check if it is equal to one: [yes]. Conclusion: [correct].
+List the action: [UNSTACK yellow block]. Actions asides from these are not allowed. Check if the action is one of "PICK UP", "UNSTACK", "PUT DOWN" and "STACK ON": [yes]. Conclusion: [correct].
+
+[UNSTACK Check]
+List the state of your hand: [Empty]. Your hand must be empty. Check if your hand is empty: [yes]. Conclusion: [correct].
+List the <object> of UNSTACK: [yellow block]. <object>'s state must be on another block. List the state of <object>: [on orange block]. Check if the <object> is 'on <another block>': [yes]. Conclusion: [correct].
+List the <object> of UNSTACK: [yellow block]. No <object>'s state can be 'on <object>'. Repeat current State: [red block: on table, blue block: on table, orange block: on blue block, yellow block: on orange block]. In the repeated current state, list the blocks whose state is 'on <target>': [no other blocks]. List the state of the above block: [], check again if the state of the above block is 'on <target>': [not applicable]. Count the number of above blocks: [0]. Check if the number is zero: [yes]. Conclusion: [correct].
+
+[Forbidden & Mistake Action Check]
+List the chosen action: [UNSTACK yellow block].
+Repeat all actions and feedbacks in the [Forbidden Actions], [Policy Mistakes], and [Temporary Mistakes]: No forbidden actions.
+Check if the [Action] is in the [Temporary Mistakes]: Not applicable.
+Check if the [Action] is in the [Forbidden Actions] or [Policy Mistakes]: Not listed.
+Pass to the [Action Output] part.
+
+[Action Output]
+EXECUTE
+UNSTACK yellow block
+[----- Decision Process End -----]
+Now, read the above paragraphs especially the conclusion, and help me to extract the [Action] in the format of [Action Space Definition]. If there is no action, please output [ERROR].
+The only thing you should output is the [Action] and do not include any other information. Please note that do not include any marks like quotations.

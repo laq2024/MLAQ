@@ -1,0 +1,7 @@
+Since the next food item that should be PUT on the sandwich is bread_slice1, and I, Dave, have already picked up bread_slice1, my action should be to PUT bread_slice1 on the cutting board. This does not violate any [Forbidden Actions].
+
+I will propose the following action for myself:
+
+EXECUTE
+NAME Chad ACTION WAIT
+NAME Dave ACTION PUT bread_slice1 cutting_board

@@ -1,0 +1,69 @@
+Here is the feedback from a prediction checker. 
+[--- Begin ---]
+[Repeat state]: 
+[State]
+[Hand State]
+Holding yellow block
+[Block States]
+blue block: on table
+orange block: on blue block
+red block: on table
+yellow block: in hand
+
+[Repeat action]: 
+EXECUTE
+STACK yellow block ON red block
+
+---
+
+[Prediction Format Check]: 
+1. [Title Check]: The prediction has a header titled [State].
+2. [Hand State Check]: The prediction has a header titled [Hand State]. The hand state is "Empty", which is a valid state.
+3. [Block States Check]: The prediction has a header titled [Block States]. The block states are listed in the correct order:
+   - blue block: on table
+   - orange block: on blue block
+   - red block: on table
+   - yellow block: on red block
+
+[Prediction Rule Check]:
+1. List the action: 
+EXECUTE
+STACK yellow block ON red block
+
+2. [Interaction Item Pool]: Initialize the pool: pool={}
+   - The action is "STACK yellow block ON red block".
+   - The state of yellow block in the prediction should be changed to "on red block". The state of the hand in the prediction should be changed to "Empty". Add yellow block to the pool: pool={yellow block}.
+
+3. [Prediction Conclusion]: 
+   - Hand state in the prediction: Empty.
+   - Block states in the prediction:
+     - blue block: on table
+     - orange block: on blue block
+     - red block: on table
+     - yellow block: on red block
+
+4. [Block State Consistency Check]: 
+   - Full block list: [blue block, orange block, red block, yellow block].
+   - Pool: {yellow block}, remove the items in the pool from the full block list: [blue block, orange block, red block].
+   - States of the remaining blocks:
+     - blue block: on table
+     - orange block: on blue block
+     - red block: on table
+   - Prediction's block state for the remaining blocks:
+     - blue block: on table
+     - orange block: on blue block
+     - red block: on table
+   - Check if the blocks' states in the prediction are consistent with the original state: Yes.
+
+[Temporary Conclusion]: The prediction satisfies the predicting rules.
+
+[Conclusion Justification]: Check the prediction AGAIN based on the [Action Forward Rule] and the [Block State Consistency Check].
+- The state of yellow block in the prediction should be changed to "on red block".
+- The state of the hand in the prediction should be changed to "Empty".
+
+[Final Conclusion]: The prediction is valid.
+
+[Checker Conclusion]: [CORRECT]
+[--- End ---]
+Please read the feedback carefully and help to summarize it. Please provide the feedback in a more concise manner. 
+If the feedback says that the prediction is correct, please output [VALID]; otherwise, please output [ERROR] and provide the reason. 

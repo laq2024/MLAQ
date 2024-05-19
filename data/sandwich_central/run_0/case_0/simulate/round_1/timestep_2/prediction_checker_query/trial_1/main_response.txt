@@ -1,0 +1,32 @@
+[Start]
+[Interaction Items Pool]: first initialize an empty <pool>={}. For PUT action, repeat [bread_slice1]: [bread_slice1], add bread_slice1 to <pool>=[bread_slice1].
+
+1. [Header Title Check] A header titled [State] -> A header titled [Food States] -> ... -> A header titled [Robot States] -> ...: [yes]. Line conclusion: [yes]
+2. [Food Order Check] Food items must be listed in this order: [bread_slice1, bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty]: [yes]. Line conclusion: [yes]
+3. [Food Format Check] The <food item> should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>:
+   - bread_slice1: atop cutting_board [yes]
+   - bread_slice2: on left side [yes]
+   - bacon: on left side [yes]
+   - cheese: on left side [yes]
+   - tomato: gripped by Chad [yes]
+   - cucumber: on right side [yes]
+   - ham: on right side [yes]
+   - beef_patty: on right side [yes]
+   Line conclusion: [yes]
+   
+4. [Robot Format Check] Each line represents the state of one robot's gripper.
+   - Chad's gripper is holding tomato [yes]
+   - Dave's gripper is empty [yes]
+   Line conclusion: [yes]
+
+5. [PICK Rule Check 1] Not applicable for this scenario as there is no PICK action.
+
+6. [PICK Rule Check 2] Not applicable for this scenario as there is no PICK action.
+
+7. [PUT Rule Check 1] For PUT, repeat <agent>: [Dave], repeat state of <agent>: [Dave's gripper is empty], it should equal to '<agent>'s gripper is empty': [yes]. Line conclusion: [yes]
+
+8. [PUT Rule Check 2] For PUT, repeat <obj1>=[bread_slice1], <obj2>=[cutting_board], <State-1>=[atop cutting_board]. State of <obj1> in prediction: <State-2>=[atop cutting_board]. <State-2> should equal to <State-1>: [yes]. Line conclusion: [yes]
+
+9. [Other State Check] Repeat items not in <pool>=[bread_slice1]: [bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty]. State of these items should not change: [yes]. Line conclusion: [yes]
+
+[Conclusion] All checks satisfy the rules without any issue. The prediction is valid.

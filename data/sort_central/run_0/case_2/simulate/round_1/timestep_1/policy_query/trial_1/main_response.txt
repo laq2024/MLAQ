@@ -1,0 +1,67 @@
+[1. Action Planning]
+[Action Planning] Starts here:
+[a. Recall]
+  + [Repeat current State]: [blue_square: panel1], [pink_polygon: panel4], [yellow_trapezoid: panel7]
+  + [Repeat target State]: [blue_square: panel2], [pink_polygon: panel4], [yellow_trapezoid: panel6]
+
+[b. Action Plan]
+  + [Interactive Cubes]
+    - Zones' range: [zone1=[panel1, panel2, panel3], zone2=[panel3, panel4, panel5], zone3=[panel5, panel6, panel7]]
+    - Initial empty pools: [pool1={}, pool2={}, pool3={}]
+    - Allocate cubes to zones: [blue_square -> panel1 -> zone1, pink_polygon -> panel4 -> zone2, yellow_trapezoid -> panel7 -> zone3]
+    - Pools: [pool1={blue_square}, pool2={pink_polygon}, pool3={yellow_trapezoid}]
+  + [Occupied Panels]: [panel1, panel4, panel7]
+  + [Available Targets]: for each robot based on their zone without including occupied panels.
+    - Alice: panels=[panel2, panel3] (panel1 is occupied)
+    - Bob: panels=[panel3, panel5] (panel4 is occupied)
+    - Chad: panels=[panel5, panel6] (panel7 is occupied)
+  + [Tip Recall] 
+    - [tip 1: no intersecting cubes that hinder operations.]
+  + [Plan Process]
+    - Alice -> from pool1, can pick: [blue_square] from panel1 and place to panel2.
+    - Bob -> wait, as no available action required by target state concerning his zone.
+    - Chad -> from pool3, can pick: [yellow_trapezoid] from panel7 and place to panel6.
+
+[c. Pre Action Conclude]
+Formulate the action:
+  - Alice: PICK blue_square PLACE panel2
+  - Bob: WAIT
+  - Chad: PICK yellow_trapezoid PLACE panel6
+
+[2. Action Conclusion]
+Conclude the action in the following format:
+EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION WAIT
+NAME Chad ACTION PICK yellow_trapezoid PLACE panel6
+
+[3. Action Constraints Check]
+Running the detailed constraints check:
++ [Basic Constraints]
+  - It should contain three action lines. Here we listed three actions for Alice, Bob, and Chad. Conclusion: correct.
+  - None of the agents perform WAIT all at the same time.
+  - No agent picks objects other than defined: blue_square, pink_polygon, yellow_trapezoid. Conclusion: correct.
+  - Each agent has different PICK & PLACE targets. Conclusion: correct.
++ [PICK & PLACE Constraints]
+  - Alice's action check (PICK blue_square from panel1, PLACE at panel2): Both within her range [panel1, panel2, panel3]. Conclusion: correct.
+  - Bob's action: WAIT. Conclusion: correct.
+  - Chad's action check (PICK yellow_trapezoid from panel7, PLACE at panel6): Both within his range [panel5, panel6, panel7]. Conclusion: correct.
+
+[4. Action Revise]
+Given no issues in the action check, there is no need for revision. Proceed to forbidden action check.
+
+[5. Forbidden & Mistake Action Check]
+Listing actions:
+- Alice: PICK blue_square PLACE panel2
+- Bob: WAIT
+- Chad: PICK yellow_trapezoid PLACE panel6
+Repeat all actions in the [Forbidden Actions] and [Policy Mistakes]: None listed.
++ The chosen actions are not in the list of forbidden actions and policy mistakes. 
+Passing to the output stage.
+
+[6. Action Output]
+Output final action based on the detailed description:
+EXECUTE
+NAME Alice ACTION PICK blue_square PLACE panel2
+NAME Bob ACTION WAIT
+NAME Chad ACTION PICK yellow_trapezoid PLACE panel6

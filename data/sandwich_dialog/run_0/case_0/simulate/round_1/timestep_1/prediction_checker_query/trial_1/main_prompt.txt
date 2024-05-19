@@ -1,0 +1,81 @@
+You are a prediction checker. You will receive a [State], an [Action], and the subsequent [Prediction].
+You should follow the instructions in [Detailed Constraints for Prediction] to check if the [Prediction] is valid based on the given [State] and [Action]. Take the mistakes in the [Prediction Mistakes] into consideration.
+
+[State Template]
+[State]
+[Food States]
+bread_slice1: <food state>
+bread_slice2: <food state>
+bacon: <food state>
+cheese: <food state>
+tomato: <food state>
+cucumber: <food state>
+ham: <food state>
+beef_patty: <food state>
+[Robot States]
+1. Chad's gripper is <gripper state>
+2. Dave's gripper is <gripper state>
+
+[Detailed Constraints for Prediction]
+Check the following constraints and Fill in blanks in '[]'. Check these constraints one by one: 1, 2... Only get your conclusion according to the results of these checks! 
+Initialize a empty <pool>={} as Interaction Items
+* Get [Interaction Items Pool]: first initialize an empty <pool>={}. For PICK actions, repeat <obj>: [], add <obj> to <pool>=[]. For PUT action, repeat <obj1>: [], add <obj1> to <pool>=[].
+1. [Header Title Check] A header titled [State] -> A header titled [Food States] -> ... -> A header titled [Robot States] -> ...: []
+2. [Food Order Check] Food items must be listed in this order: [bread_slice1, bread_slice2, bacon, cheese, tomato, cucumber, ham, beef_patty]: []
+3. [Food Format Check] The <food item> should be one of: on right side, on left side, atop <another food item>, atop cutting_board, and gripped by <robot>: []
+4. [Robot Format Check] Each line represents the state of one robot's gripper. Each robot's gripper should be one of: 'empty' and 'holding <food item>': []
+5. [PICK Rule Check 1] For PICK, repeat <agent>: [], <obj>: [], state of <agent>: [], it should equal to '<agent>'s gripper is holding <obj>': []
+6. [PICK Rule Check 2] For PICK, repeat <agent>: [], <obj>: [], state of <obj> in prediction: [], it should equal to 'gripped by <agent>': []
+7. [PUT Rule Check 1] For PUT, repeat <agent>: [], repeat state of <agent>: [], it should equal to '<agent>'s gripper is empty': []
+8. [PUT Rule Check 2] For PUT, repeat <obj1>=[], <obj2>=[], <State-1>=[atop <obj2>], State of <obj1> in prediction: <State-2>=[]. <State-2> should equal to <State-1>: []
+9. [Other State Check] Repeat items not in <pool>=[]: []. State of these items should not change: []
+* When checking, you should repeat the prompt and fill in blanks, replace <obj> and <agent> with their true values, and give the line conclusion (yes/no/not applicable). For example:
+8. [PUT Rule Check 2] For PUT, repeat <obj1>=[cheese], <obj2>=[cucumber], <State-1>=[atop cucumber]. State of <obj1> in prediction: <State-2>=[atop cucumber]. <State-2> should equal to <State-1>: [yes]. Line conclusion: [yes]
+9. [Other State Check] Repeat items not in <pool>=[cucumber]: [bread_slice1, bread_slice2, bacon, cheese, tomato, ham, beef_patty]. State of these items should not change: [yes]. Line conclusion: [yes]
+* Constraint 5 & 6 MAY have two lines. If so, you should output results separately. For example: 
+5.1 [PICK Rule Check 1] For PICK, repeat <agent>: [Chad], <obj>: [cucumber], state of <agent>: [Chad's gripper is holding cucumber], it should equal to '<agent>'s gripper is holding <obj>': [yes]. Line conclusion: [yes]
+5.2 [PICK Rule Check 1] For PICK, repeat <agent>: [Dave], ... 
+
+[Prediction Mistakes]
+No prediction mistakes.
+Follow the [Detailed Constraints for Prediction] strictly and think step-by-step, then give the [Conclusion]
+Now you should check the following [Action] based on the given [State] 
+The original state is:
+[State]
+[Food States]
+bread_slice1: on left side
+bread_slice2: on left side
+bacon: on left side
+cheese: on left side
+tomato: on right side
+cucumber: on right side
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is empty
+
+The action is:
+EXECUTE
+NAME Chad ACTION WAIT
+NAME Dave ACTION PICK bread_slice1
+
+The prediction is:
+[State]
+[Food States]
+bread_slice1: gripped by Dave
+bread_slice2: on left side
+bacon: on left side
+cheese: on left side
+tomato: on right side
+cucumber: on right side
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is holding bread_slice1
+
+[Start]
+[Interaction Items Pool]: first initialize ...
+1. [Header Title Check] ...
+[Conclusion] ...

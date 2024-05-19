@@ -1,0 +1,25 @@
+1. [Interaction Item Pool]: initialize the pool of the food items that the robots are interacting with. It is an empty list at the beginning: pool={}
+  
+2. [Action Forward Rule]: the state in the [Prediction] is changed by the [Action]. Follow these steps to predict the [Prediction]:
+  + List the action of <agent>=Chad and Dave: 
+    - For Chad: action: PICK, <obj>: tomato, <agent>: Chad. State of Chad should be 'Chad's gripper is holding tomato'. State of the tomato should be 'gripped by Chad'. Add tomato to the pool: pool={tomato}
+    - For Dave: action: PICK, <obj>: bread_slice1, <agent>: Dave. State of Dave should be 'Dave's gripper is holding bread_slice1'. State of the bread_slice1 should be 'gripped by Dave'. Add bread_slice1 to the pool: pool={tomato, bread_slice1}
+  
+3. [Prediction Conclusion]: conclude the [Prediction] based on the [Action Forward Rule]
+  + The format of the [Prediction] should follow the [Detailed Constraints for State]
+  + The food items that are not present in the pool should not change their state
+
+[Prediction] is:
+[State]
+[Food States]
+bread_slice1: gripped by Dave
+bread_slice2: on left side
+bacon: on left side
+cheese: on left side
+tomato: gripped by Chad
+cucumber: on right side
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is holding tomato
+2. Dave's gripper is holding bread_slice1

@@ -1,0 +1,73 @@
+### [State Prediction]
+
+1. **Alice's action**: Alice picks the blue_square and places it on panel2.
+   - **[Cube States] after Alice's action**:
+     - blue_square is on panel2
+     - pink_polygon is on panel4
+     - yellow_trapezoid is on panel6
+
+2. **Bob's action**: Bob waits.
+   - **[Cube States] after Bob's action** (no change):
+     - blue_square is on panel2
+     - pink_polygon is on panel4
+     - yellow_trapezoid is on panel6
+
+3. **Chad's action**: Chad waits.
+   - **[Cube States] after Chad's action** (no change):
+     - blue_square is on panel2
+     - pink_polygon is on panel4
+     - yellow_trapezoid is on panel6
+
+4. **Conclude the [Cube States] predicting result according to the format specified in [State Output Instructions]**:
+   - blue_square is on panel2
+   - pink_polygon is on panel4
+   - yellow_trapezoid is on panel6
+
+5. **Conclude the [State] in the format of [Detailed Constraints for State]**:
+   - **[State]**
+     - **[Cube States]**
+       - blue_square is on panel2
+       - pink_polygon is on panel4
+       - yellow_trapezoid is on panel6
+
+### [State Constraints Check]
+
+1. **List the lines of [Cube States]**:
+   - blue_square is on panel2
+   - pink_polygon is on panel4
+   - yellow_trapezoid is on panel6
+   - **Count the number**: 3
+   - **Check if it is equal to three**: Yes
+
+2. **List the cube items and their locations**:
+   - blue_square is on panel2
+   - pink_polygon is on panel4
+   - yellow_trapezoid is on panel6
+   - **Check if their locations are one of the following terms**:
+     - on panel1
+     - on panel2
+     - on panel3
+     - on panel4
+     - on panel5
+     - on panel6
+     - on panel7
+   - **Check if they satisfy constraints**: Yes
+
+3. **List the locations of the cubes**:
+   - panel2
+   - panel4
+   - panel6
+   - **It is not allowed to have two cubes on the same panel. Check if they satisfy constraints**: Yes
+
+4. **List the locations of the cubes**:
+   - panel2
+   - panel4
+   - panel6
+   - **The panel name should not contain " " in the middle. For example, use "panel2" instead of "panel 2". Check if they satisfy constraints**: Yes
+
+### [State Output]
+[State]
+[Cube States]
+blue_square is on panel2
+pink_polygon is on panel4
+yellow_trapezoid is on panel6

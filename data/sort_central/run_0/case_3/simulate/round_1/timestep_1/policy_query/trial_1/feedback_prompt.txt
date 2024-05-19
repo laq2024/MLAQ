@@ -1,0 +1,6 @@
+Here is the feedback from an action checker. 
+[--- Begin ---]
+
+[--- End ---]
+Please read the feedback carefully and help to summarize it. Please provide the feedback in a more concise manner. 
+If the feedback says that the action is valid, please output [VALID]; otherwise, please output [ERROR] and provide the reason. 

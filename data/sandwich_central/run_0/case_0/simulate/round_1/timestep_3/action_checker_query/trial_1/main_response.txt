@@ -1,0 +1,76 @@
+Let's check the given [Action] based on the provided [State] step-by-step according to the [Detailed Constraints for Action].
+
+[Action]
+```
+EXECUTE
+NAME Chad ACTION PUT tomato bread_slice1
+NAME Dave ACTION PICK cheese
+```
+
+1. **[Line Number Check]**  
+   The line of the actions should equal to two.
+   - There are two lines of actions: Chad and Dave.  
+   Line conclusion: **[yes]**
+
+2. **[Agent Order Check]**  
+   The first agent should be Chad and the second agent should be Dave.
+   - The first agent is Chad and the second agent is Dave.  
+   Line conclusion: **[yes]**
+
+3. **[WAIT Number Check]**  
+   The number of WAIT should be less than or equal to one.
+   - There are no WAIT actions.  
+   Line conclusion: **[yes]**
+
+4. **[PUT Number Check]**  
+   The number of PUT should be less than or equal to one.
+   - There is one PUT action (Chad).  
+   Line conclusion: **[yes]**
+
+5. **[PUT Robot State Check]**  
+   For PUT action, repeat state of <agent>: [Chad], its gripper cannot be empty: [holding tomato]
+   - Chad is holding tomato, so the gripper is not empty.  
+   Line conclusion: **[yes]**
+
+6. **[PICK Side Check]**  
+   PICK the food item on the side of the robot.
+   - Dave is picking cheese, which is on the left side (Dave's side).  
+   Line conclusion: **[yes]**
+
+7. **[PICK Robot State Check]**  
+   PICK the food item only if the gripper is empty.
+   - Dave's gripper is empty.  
+   Line conclusion: **[yes]**
+
+8. **[PICK Food State Check]**  
+   PICK the food item only if the food item's state is not 'atop <obj>'.
+   - Cheese is on the left side, not atop any other object.  
+   Line conclusion: **[yes]**
+
+9. **[PUT Availability Check 1]**  
+   If <obj2> is not cutting_board, repeat <obj2>: [bread_slice1], state of <obj2>: <State-2>=[atop cutting_board]. Get food item before <obj2> in the [Extended Recipe Order]: <X-item>=[cutting_board]. 'atop <X-item>' is: <State-X>=[]. <State-2> should equal to <State-X>: [yes]
+   - The state of bread_slice1 is 'atop cutting_board'.  
+   Line conclusion: **[yes]**
+
+10. **[PUT Availability Check 2]**  
+    Get <item>s in [State] whose state matches '<item>: atop <obj2>': pool=[]. If no other food item is 'atop <obj2>' (meaning pool is empty), this constraint is valid directly: [yes]
+    - No other item is atop bread_slice1.  
+    Line conclusion: **[yes]**
+
+11. **[PUT Order Check 1]**  
+    Repeat <obj1>: [tomato], <obj1> should equal to <B-Item>=[Chad: tomato]: [yes]
+    - Tomato is the first item Chad should handle.  
+    Line conclusion: **[yes]**
+
+12. **[PUT Order Check 2]**  
+    Repeat <obj1>: [tomato], get food item before <obj1> in [Extended Recipe Order]: <Y-item>=[], <obj2>: [bread_slice1]. <obj2> should equal to <Y-Item>=[]: [yes]
+    - Tomato comes after bread_slice1 in the recipe order.  
+    Line conclusion: **[yes]**
+
+13. **[PICK Order Check]**  
+    For PICK action, robot should PICK the first food item in its [Reachable Items]: [yes]
+    - Cheese is the first item Dave should pick.  
+    Line conclusion: **[yes]**
+
+**Conclusion:**  
+All constraints are satisfied. The actions are valid.

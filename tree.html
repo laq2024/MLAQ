@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tutorial Demo</title>
+  </head>
+  <body>
+    <div id="mountNode"></div>
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g6-3.7.1/dist/g6.min.js"></script>
+    <!-- 4.x and later versions -->
+    <!-- <script src="https://gw.alipayobjects.com/os/lib/antv/g6/4.3.11/dist/g6.min.js"></script> -->
+    <script>
+      const graph = new G6.Graph({
+        container: 'mountNode',
+        width: 1600,
+        height: 3200,
+        defaultNode: {
+          labelCfg: {
+            style: {
+              fill: '#fff',
+            },
+          },
+        },
+        defaultEdge: {
+          labelCfg: {
+            autoRotate: true,
+          },
+        },
+        nodeStateStyles: {
+          hover: {
+            fill: 'lightsteelblue',
+          },
+          click: {
+            stroke: '#000',
+            lineWidth: 3,
+          },
+        },
+        edgeStateStyles: {
+          click: {
+            stroke: 'steelblue',
+          },
+        },
+        layout: {
+          type: 'force',
+          linkDistance: 100,
+          preventOverlap: true,
+          nodeStrength: -30,
+          edgeStrength: 0.1,
+        },
+        modes: {
+          default: ['drag-canvas', 'zoom-canvas', 'drag-node'],
+        },
+      });
+
+      const main = async () => {
+        const remoteData = {
+    "nodes": [
+    {"id": "0", "label": "[State]\n[Cube States]\nblue_square is on panel7\npink_polygon is on panel1\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "1", "label": "[State]\n[Cube States]\nblue_square is on panel6\npink_polygon is on panel3\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "2", "label": "[State]\n[Cube States]\nblue_square is on panel5\npink_polygon is on panel3\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "3", "label": "[State]\n[Cube States]\nblue_square is on panel4\npink_polygon is on panel3\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "4", "label": "[State]\n[Cube States]\nblue_square is on panel3\npink_polygon is on panel3\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "5", "label": "[State]\n[Cube States]\nblue_square is on panel2\npink_polygon is on panel4\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "6", "label": "[State]\n[Cube States]\nblue_square is on panel2\npink_polygon is on panel4\nyellow_trapezoid is on panel5\n", "class": "state"},
+    {"id": "7", "label": "[State]\n[Cube States]\nblue_square is on panel2\npink_polygon is on panel4\nyellow_trapezoid is on panel6\n", "class": "state"},
+    {"id": "8", "label": "[State]\n[Cube States]\nblue_square is on panel6\npink_polygon is on panel1\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "9", "label": "[State]\n[Cube States]\nblue_square is on panel2\npink_polygon is on panel3\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "10", "label": "[State]\n[Cube States]\nblue_square is on panel5\npink_polygon is on panel4\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "11", "label": "[State]\n[Cube States]\nblue_square is on panel3\npink_polygon is on panel4\nyellow_trapezoid is on panel3\n", "class": "state"},
+    {"id": "12", "label": "[State]\n[Cube States]\nblue_square is on panel3\npink_polygon is on panel4\nyellow_trapezoid is on panel5\n", "class": "state"},
+    ],
+    "edges": [
+    {"source": "0", "target": "1", "label": "EXECUTE\nNAME Alice ACTION PICK pink_polygon PLACE panel3\nNAME Bob ACTION WAIT\nNAME Chad ACTION PICK blue_square PLACE panel6\n", "weight": 1.0},
+    {"source": "0", "target": "2", "label": "EXECUTE\nNAME Alice ACTION PICK pink_polygon PLACE panel3\nNAME Bob ACTION WAIT\nNAME Chad ACTION PICK blue_square PLACE panel5\n", "weight": 1.0},
+    {"source": "0", "target": "8", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION WAIT\nNAME Chad ACTION PICK blue_square PLACE panel6\n", "weight": 1.0},
+    {"source": "1", "target": "2", "label": "EXECUTE\nNAME Alice ACTION PICK pink_polygon PLACE panel3\nNAME Bob ACTION WAIT\nNAME Chad ACTION PICK blue_square PLACE panel5\n", "weight": 1.0},
+    {"source": "1", "target": "10", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION PICK pink_polygon PLACE panel4\nNAME Chad ACTION PICK blue_square PLACE panel5\n", "weight": 1.0},
+    {"source": "2", "target": "3", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION PICK blue_square PLACE panel4\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "2", "target": "4", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION PICK blue_square PLACE panel3\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "3", "target": "3", "label": "EXECUTE\nNAME Alice ACTION PICK pink_polygon PLACE panel3\nNAME Bob ACTION WAIT\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "3", "target": "4", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION PICK blue_square PLACE panel3\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "4", "target": "5", "label": "EXECUTE\nNAME Alice ACTION PICK blue_square PLACE panel2\nNAME Bob ACTION PICK pink_polygon PLACE panel4\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "4", "target": "9", "label": "EXECUTE\nNAME Alice ACTION PICK blue_square PLACE panel2\nNAME Bob ACTION WAIT\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "5", "target": "6", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION PICK yellow_trapezoid PLACE panel5\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "6", "target": "7", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION WAIT\nNAME Chad ACTION PICK yellow_trapezoid PLACE panel6\n", "weight": 1.0},
+    {"source": "6", "target": "7", "label": "EXECUTE\nNAME Alice ACTION PICK blue_square PLACE panel2\nNAME Bob ACTION WAIT\nNAME Chad ACTION PICK yellow_trapezoid PLACE panel6\n", "weight": 1.0},
+    {"source": "8", "target": "2", "label": "EXECUTE\nNAME Alice ACTION PICK pink_polygon PLACE panel3\nNAME Bob ACTION WAIT\nNAME Chad ACTION PICK blue_square PLACE panel5\n", "weight": 1.0},
+    {"source": "8", "target": "1", "label": "EXECUTE\nNAME Alice ACTION PICK pink_polygon PLACE panel3\nNAME Bob ACTION WAIT\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "9", "target": "5", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION PICK pink_polygon PLACE panel4\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "10", "target": "11", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION PICK blue_square PLACE panel3\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "11", "target": "5", "label": "EXECUTE\nNAME Alice ACTION PICK blue_square PLACE panel2\nNAME Bob ACTION WAIT\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "11", "target": "12", "label": "EXECUTE\nNAME Alice ACTION WAIT\nNAME Bob ACTION PICK yellow_trapezoid PLACE panel5\nNAME Chad ACTION WAIT\n", "weight": 1.0},
+    {"source": "12", "target": "7", "label": "EXECUTE\nNAME Alice ACTION PICK blue_square PLACE panel2\nNAME Bob ACTION WAIT\nNAME Chad ACTION PICK yellow_trapezoid PLACE panel6\n", "weight": 1.0},
+    ]
+}
+
+        const nodes = remoteData.nodes;
+        const edges = remoteData.edges;
+        nodes.forEach((node) => {
+          if (!node.style) {
+            node.style = {};
+          }
+          node.style.lineWidth = 1;
+          node.style.stroke = '#666';
+          node.style.fill = 'steelblue';
+          switch (node.class) {
+            case 'state': {
+              node.type = 'rect';
+              node.size = [180, 200];
+              break;
+            }
+            case 'c1': {
+              node.type = 'rect';
+              node.size = [35, 20];
+              break;
+            }
+          }
+        });
+        edges.forEach((edge) => {
+          if (!edge.style) {
+            edge.style = {};
+          }
+          edge.style.lineWidth = edge.weight;
+          edge.style.opacity = 0.6;
+          edge.style.stroke = 'grey';
+        });
+
+        graph.data(remoteData);
+        graph.render();
+
+        graph.on('node:mouseenter', (e) => {
+          const nodeItem = e.item;
+          graph.setItemState(nodeItem, 'hover', true);
+        });
+        graph.on('node:mouseleave', (e) => {
+          const nodeItem = e.item;
+          graph.setItemState(nodeItem, 'hover', false);
+        });
+        graph.on('node:click', (e) => {
+          const clickNodes = graph.findAllByState('node', 'click');
+          clickNodes.forEach((cn) => {
+            graph.setItemState(cn, 'click', false);
+          });
+          const nodeItem = e.item;
+          graph.setItemState(nodeItem, 'click', true);
+        });
+        graph.on('edge:click', (e) => {
+          const clickEdges = graph.findAllByState('edge', 'click');
+          clickEdges.forEach((ce) => {
+            graph.setItemState(ce, 'click', false);
+          });
+          const edgeItem = e.item;
+          graph.setItemState(edgeItem, 'click', true);
+        });
+      };
+      main();
+    </script>
+  </body>
+</html>

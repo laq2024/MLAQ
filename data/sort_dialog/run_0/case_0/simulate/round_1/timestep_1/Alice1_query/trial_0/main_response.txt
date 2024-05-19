@@ -1,0 +1,5 @@
+I am Alice, and my target is to PUT blue_square on panel2, and other robots are Bob and Chad. Bob needs to place pink_polygon on panel4, and Chad needs to place yellow_trapezoid on panel6. Since blue_square is currently on panel1, which is within my reach, I propose to:
+
+PICK blue_square PLACE panel2
+
+Bob and Chad do not need to move any cubes from panels that are within my reach, so this action should not violate any [Forbidden Actions]. Bob and Chad, could you confirm that my action is okay and share your proposed actions?

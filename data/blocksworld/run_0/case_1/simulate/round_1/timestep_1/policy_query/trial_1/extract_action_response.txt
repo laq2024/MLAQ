@@ -1,0 +1,2 @@
+EXECUTE
+PICK UP blue block

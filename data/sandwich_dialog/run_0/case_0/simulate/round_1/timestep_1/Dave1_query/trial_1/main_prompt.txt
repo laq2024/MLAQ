@@ -1,0 +1,59 @@
+[Action Options]
+1) PICK <obj>, Only PICK if gripper is empty. PICK only the correct next item according to the recipe. PICK the food item only if the food item's state is not 'atop <obj>'
+2) PUT <obj1> <obj2>. <obj1> can be one of the foods. <obj2> can be food or cutting_board
+3) WAIT, do nothing
+Only one robot can PUT each round. You must PICK up an item before PUT
+[Action Output Instruction]
+Must first output 'EXECUTE
+', then give exactly one action per robot, put each on a new line
+Example#1: 'EXECUTE
+NAME Chad ACTION PUT bread_slice1 cutting_board
+NAME Dave ACTION PICK tomato
+'
+Example#2: 'EXECUTE
+NAME Chad ACTION WAIT
+NAME Dave ACTION PUT cheese tomato
+'
+1. The line of the actions should be less than or equal to two. The first agent should be Chad and the second agent should be Dave
+2. The number of WAIT should be less than or equal to one. The number of PUT should be less than or equal to one
+3. PUT <obj2> only if the state of <obj2> is 'atop [food item or cutting_board]' and no other food item is 'atop <obj2>'
+
+You are a robot Dave, collaborating with Chad to make a [vegetarian_sandwich].
+[Recipe Order] Food items must be stacked following this order: bread_slice1, tomato, cheese, cucumber, bread_slice2, where bread_slice1 must be PUT atop cutting_board. 
+You must stay on left side of the table! This means you can only PICK food from left side, and Chad can only PICK from the other side.
+Only one robot can PUT at a time, so you must coordinate with Chad.
+
+At the current round:
+You can see these food items are on your reachable side, and you can only interact with them:
+bread_slice1: on your side
+bread_slice2: on your side
+bacon: on your side
+cheese: on your side
+Your gripper is empty
+The table state is:
+There are no food items on the cutting board
+The [Reachable Items] in [Recipe] of each robot are:
+Chad: tomato, cucumber
+Dave: bread_slice1, cheese, bread_slice2
+The first item in [Reachable Items] is: <B-Item>=[Chad: tomato; Dave: bread_slice1]
+Think step-by-step about the task and Chad's response. Carefully check and correct them if they made a mistake. 
+Improve your plans if given [Environment Feedback].
+Respond very concisely but informatively, and do not repeat what others have said. Discuss with others to come up with the best plan. If you agree with someone, you should tell them until everyone agrees on the plan.
+Note: Propose exactly one action for [yourself] at the **current** round, select from [Action Options].
+**Note**: End your response by either: 1) output PROCEED, if the plans require further discussion; 2) If **everyone** has made proposals and **got approved**, output the final plan, must strictly follow [Action Output Instruction]!
+If everyone has made proposals and got approved, output the final plan with 'EXECUTE
+NAME Chad ACTION ...' and 'NAME Dave ACTION ...'.
+An agent cannot make final decisions without getting approval from the other agent.
+
+
+[Current Chat]
+[Chad]:
+Since the next food item that should be PUT on the sandwich is bread_slice1, and this item is on Dave's side, I cannot interact with it directly. Dave should PICK bread_slice1 and PUT it on the cutting_board as it is the first item in the recipe order and there are no items on the cutting board currently, making it valid for Dave to PUT bread_slice1 there.
+
+Since I am on the right side and bread_slice1 is not on my side, my only valid action at this moment is to WAIT. 
+
+Let's check if we are aligned with this strategy before moving forward. If yes, and you agree, I'll finalize the actions according to our discussion.
+You are Dave, before you make decisions, you should check if the [Action] is violating the [Forbidden Actions].
+Your response is:
+
+Since the next food item should be PUT on the sandwich is ..., and ...

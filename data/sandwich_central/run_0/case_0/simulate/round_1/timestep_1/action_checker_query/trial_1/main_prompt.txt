@@ -1,0 +1,74 @@
+You are an action checker. You should check if the [Action] is valid based on the given [State].
+You should follow the check instructions in [Detailed Constraints for Action] to check the [Action] step-by-step. Take the mistakes in the [Action Mistakes] into consideration.
+
+The following lists the [Task Description], and [Detailed Constraints for Action]. 
+[Task Description]
+Task: Cooperative Cooking in a Multi-Agent System
+
+Agents: Chad and Dave
+Chad - Can only PICK food items from the right side of the table.
+Dave - Can only PICK food items from the left side of the table.
+
+Objective: Collaboratively prepare a meal named "[vegetarian_sandwich]". The food items of target state must be assembled in the following sequence: [Recipe Order]=[bread_slice1, tomato, cheese, cucumber, bread_slice2]. 
+
+[Action Options]
+1) PICK <obj>: Pick one food <item>. Only PICK if gripper is empty. PICK only the correct next item according to the recipe
+2) PUT <obj1> <obj2>: PUT <obj1> on the top of <obj2>. <obj1> can be one of the foods. <obj2> can be food or cutting_board
+3) WAIT, do nothing
+Only one robot can PUT each round. You must PICK up an item before PUT
+[Action Output Instruction]
+Must first output 'EXECUTE
+', then give exactly one action per robot, put each on a new line
+Dave can only pick up the food item on the left side of the table. Chad can only pick up the food item on the right side of the table
+
+The [Reachable Items] in [Recipe] of each robot are: 
+Chad: tomato, cucumber
+Dave: bread_slice1, cheese, bread_slice2
+The first item in [Reachable Items] is: <B-Item>=[Chad: tomato; Dave: bread_slice1]These items contain those gripped by the robots. Chad can only reach right side, and Dave can only reach left side.
+[Detailed Constraints for Action]
+Check the following constraints and Fill in blanks in '[]'. Check these constraints one by one: 1, 2...
+* Get [Extended Recipe Order]: [cutting_board, bread_slice1, ...] (cutting_board + [Recipe Order])
+* Repeat <B-Item>=[Chad: [], Dave: []]
+1. [Line Number Check] The line of the actions should equal to two
+2. [Agent Order Check] The first agent should be Chad and the second agent should be Dave
+3. [WAIT Number Check] The number of WAIT should be less than or equal to one
+4. [PUT Number Check] The number of PUT should be less than or equal to one
+5. [PUT Robot State Check] For PUT action, repeat state of <agent>: [], its gripper cannot be empty: []
+6. [PICK Side Check] PICK the food item on the side of the robot
+7. [PICK Robot State Check] PICK the food item only if the gripper is empty
+8. [PICK Food State Check] PICK the food item only if the food item's state is not 'atop <obj>'
+9. [PUT Availability Check 1] If <obj2> is not cutting_board, repeat <obj2>: [], state of <obj2>: <State-2>=[]. Get food item before <obj2> in the [Extended Recipe Order]: <X-item>=[]. 'atop <X-item>' is: <State-X>=[]. <State-2> should equal to <State-X>: []
+10. [PUT Availability Check 2] Get <item>s in [State] whose state matches '<item>: atop <obj2>': pool=[]. If no other food item is 'atop <obj2>' (meaning pool is empty), this constraint is valid directly: []
+11. [PUT Order Check 1] Repeat <obj1>: [], <obj1> should equal to <B-Item>=[]: []
+12. [PUT Order Check 2] Repeat <obj1>: [], get food item before <obj1> in [Extended Recipe Order]: <Y-item>=[], <obj2>: []. <obj2> should equal to <Y-Item>=[]: [].
+13. [PICK Order Check] For PICK action, robot should PICK the first food item in its [Reachable Items]: []
+When checking, you should repeat the prompt and fill in blanks and give the line conclusion  (yes/no/not applicable). For example:
+11. [PUT Order Check 1] Repeat <obj1>: [bread_slice2], <obj1> should equal to <B-Item>=[bread_slice2]: [yes]
+12. [PUT Order Check 2] Repeat <obj1>: [bread_slice2], get food item before <obj1> in [Extended Recipe Order]: <Y-item>=[cucumber], <obj2>: [cucumber]. <obj2> should equal to <Y-Item>=[cucumber]: [yes]. Line conclusion: [yes]
+
+[Action Mistakes]
+No action mistakes.
+Follow the [Detailed Constraints for Action] strictly and think step-by-step, then give the [Conclusion]
+Now you should check the following [Action] based on the given [State]
+[State]
+[Food States]
+bread_slice1: on left side
+bread_slice2: on left side
+bacon: on left side
+cheese: on left side
+tomato: on right side
+cucumber: on right side
+ham: on right side
+beef_patty: on right side
+[Robot States]
+1. Chad's gripper is empty
+2. Dave's gripper is empty
+
+EXECUTE
+NAME Chad ACTION PICK tomato 
+NAME Dave ACTION PICK bread_slice1
+
+[Start]
+[Extended Recipe Order]: ..., 
+<B-Item>=[Chad: ...; Dave: ...]  
+1. [Line Number Check] ...

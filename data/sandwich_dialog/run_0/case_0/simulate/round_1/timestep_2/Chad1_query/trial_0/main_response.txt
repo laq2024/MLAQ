@@ -1,0 +1,3 @@
+Since the next food item that should be PUT on the sandwich is bread_slice1, and Dave has already picked up bread_slice1, my action should allow Dave to PUT bread_slice1 on the cutting board. Therefore, I should WAIT to not interfere with Dave's action. This does not violate any [Forbidden Actions]. 
+
+PROCEED

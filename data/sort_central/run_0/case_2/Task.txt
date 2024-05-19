@@ -1,0 +1,16 @@
+Original state:
+[State]
+[Cube States]
+blue_square is on panel1
+pink_polygon is on panel4
+yellow_trapezoid is on panel7
+
+Target state:
+[State]
+[Cube States]
+blue_square is on panel2
+pink_polygon is on panel4
+yellow_trapezoid is on panel6
+
+Initial Information:
+nothing

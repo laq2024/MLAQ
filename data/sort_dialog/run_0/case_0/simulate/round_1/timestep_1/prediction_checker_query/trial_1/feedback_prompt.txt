@@ -1,0 +1,20 @@
+Here is the feedback from a prediction checker. 
+[--- Begin ---]
+[Start]
+
+Get [Interaction Item Pool]: list all PICKed objects in the [Action]: <pool>=[blue_square].
+
+1. [Header Check] A header titled [State] -> A header titled [Cube States] -> List the Cube States: [yes]. Line conclusion: [yes]
+
+2. [Cube Order Check] Cubes must be listed in the following order: [blue_square, pink_polygon, yellow_trapezoid]: [yes]. Line conclusion: [yes]
+
+3. [Cube Format Check] Each line should be formatted as "<cube_name> is on <panel_name>". Three cube lines in total: [yes]. Line conclusion: [yes]
+
+4. [Cube State Check] Repeat cubes' locations: [panel2, panel4, panel6]. Don't have two cubes on the same panel: [yes]. Line conclusion: [yes]
+
+5. [PICK & PLACE Rule Check] For Alice's action: [PICK blue_square PLACE panel2], repeat <object>=[blue_square], <target>=[panel2], state of <object> in the prediction: [blue_square is on panel2], it should be '<object> is on <target>': [yes]. Line conclusion: [yes]
+
+[Conclusion] The prediction is valid.
+[--- End ---]
+Please read the feedback carefully and help to summarize it. Please provide the feedback in a more concise manner. 
+If the feedback says that the prediction is correct, please output [VALID]; otherwise, please output [ERROR] and provide the reason. 

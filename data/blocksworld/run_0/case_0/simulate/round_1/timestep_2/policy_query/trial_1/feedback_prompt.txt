@@ -1,0 +1,26 @@
+Here is the feedback from an action checker. 
+[--- Begin ---]
+[Repeat current State]: [red block: on table, blue block: on table, orange block: on blue block, yellow block: in hand; hand: Holding yellow block]
+[Repeat target State]: [red block: on table, blue block: on table, orange block: on blue block, yellow block: on red block; hand: Empty]
+[Repeat action]: [STACK yellow block ON red block]
+
+[Action Constraints Check]
+[Basic Check]:
+- Action listed is "STACK yellow block ON red block".
+- There must be one line of actions: yes, there is one line "STACK yellow block ON red block".
+- Check if it is one of "PICK UP", "UNSTACK", "PUT DOWN", and "STACK ON": yes, it is "STACK ON".
+- Conclusion: The basic format of the action is correct.
+
+[STACK ON Check]:
+a. List the state of your hand: Holding yellow block. Your hand cannot be empty. Check if your hand is holding yellow block: yes, it is holding yellow block. Conclusion: The hand state is correct for the action.
+b. List the object of STACK: yellow block. It must be in your hand. Check if yellow block is in hand: yes, yellow block is in hand, confirmed by the state list. Conclusion: The object of the action is correct.
+c. List the target of ON: red block. No object's state can be 'on red block'. In the repeated current state, blue block is on the table, orange block is on blue block. Yellow block and red block are mentioned in states, but no block's state is 'on red block'. Checking if no blocks are on red block: true, no other blocks are on red block. Conclusion: It is correct to stack on red block.
+
+[Temporary Conclusion]: The action "STACK yellow block ON red block" is appropriate since it adheres to all conditions: the hand holds the yellow block, and red block does not have another block on it.
+
+[Conclusion Justification]: The action checking followed the detailed steps including basic format validation and specific action checks for "STACK ON". All sub-checks confirmed the validity of the action.
+
+[Checker Conclusion]: VALID. "STACK yellow block ON red block" is a permissible action under the given state as it satisfies all necessary conditions outlined for a "STACK ON" action.
+[--- End ---]
+Please read the feedback carefully and help to summarize it. Please provide the feedback in a more concise manner. 
+If the feedback says that the action is valid, please output [VALID]; otherwise, please output [ERROR] and provide the reason. 

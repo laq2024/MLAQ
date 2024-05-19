@@ -1,0 +1,36 @@
+[Action Planning]
+Repeat current State: [red block: on table, blue block: on table, orange block: on blue block, yellow block: on orange block; hand: Empty]
+Repeat target State: [red block: on table, blue block: on table, orange block: on blue block, yellow block: on red block; hand: Empty]
+
+The first observation is that the yellow block needs to be moved from on top of the orange block to on top of the red block. Before we can place the yellow block on the red block, we need to ensure our hand is empty and pick up the yellow block.
+
+Since the hand is empty and the yellow block is on top of the orange block, the first action we can plan is to UNSTACK the yellow block from the orange block.
+
+[Pre Action Conclude]
+hand: Empty; red block: on table, blue block: on table, orange block: on blue block, yellow block: on orange block
+
+[Action Conclusion]
+EXECUTE
+UNSTACK yellow block
+
+
+[Action Constraints Check]
+[Basic Check]
+List the line of the actions: [EXECUTE UNSTACK yellow block]. There must be one line of actions. Count the number: [1]. Check if it is equal to one: [yes]. Conclusion: [correct].
+List the action: [UNSTACK yellow block]. Actions asides from these are not allowed. Check if the action is one of "PICK UP", "UNSTACK", "PUT DOWN" and "STACK ON": [yes]. Conclusion: [correct].
+
+[UNSTACK Check]
+List the state of your hand: [Empty]. Your hand must be empty. Check if your hand is empty: [yes]. Conclusion: [correct].
+List the <object> of UNSTACK: [yellow block]. <object>'s state must be on another block. List the state of <object>: [on orange block]. Check if the <object> is 'on <another block>': [yes]. Conclusion: [correct].
+List the <object> of UNSTACK: [yellow block]. No <object>'s state can be 'on <object>'. Repeat current State: [red block: on table, blue block: on table, orange block: on blue block, yellow block: on orange block]. In the repeated current state, list the blocks whose state is 'on <target>': [no other blocks]. List the state of the above block: [], check again if the state of the above block is 'on <target>': [not applicable]. Count the number of above blocks: [0]. Check if the number is zero: [yes]. Conclusion: [correct].
+
+[Forbidden & Mistake Action Check]
+List the chosen action: [UNSTACK yellow block].
+Repeat all actions and feedbacks in the [Forbidden Actions], [Policy Mistakes], and [Temporary Mistakes]: No forbidden actions.
+Check if the [Action] is in the [Temporary Mistakes]: Not applicable.
+Check if the [Action] is in the [Forbidden Actions] or [Policy Mistakes]: Not listed.
+Pass to the [Action Output] part.
+
+[Action Output]
+EXECUTE
+UNSTACK yellow block

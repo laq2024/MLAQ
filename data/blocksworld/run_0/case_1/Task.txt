@@ -1,0 +1,22 @@
+Original state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on table
+orange block: on table
+red block: on table
+yellow block: on red block
+
+Target state:
+[State]
+[Hand State]
+Empty
+[Block States]
+blue block: on orange block
+orange block: on table
+red block: on table
+yellow block: on red block
+
+Initial Information:
+nothing
