@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ```
 
 ### Acquire OpenAI/Claude API Keys
-In run_LAQ.py, replace the following codes with your OpenAI API key and API base URL
+In run_MLAQ.py, replace the following codes with your OpenAI API key and API base URL
 ```
 OPENAI_KEY = str("your_openai_key_here")
 os.environ["OPENAI_API_KEY"] = OPENAI_KEY
@@ -34,7 +34,7 @@ openai.api_key = OPENAI_KEY
 ```
 
 ## Usage 
-### Run LAQ on the Blocksworld domain
+### Run MLAQ on the Blocksworld domain
 You can change the blocksworld domain to other domains by changing the `--task` argument, including `blocksworld`, `sort_central`, `sort_dialog`, `sandwich_central`, and `sandwich_dialog`.
 ```
 $ conda activate laq
