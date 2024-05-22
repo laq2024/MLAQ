@@ -1,5 +1,5 @@
-# Model-based LLM Agent via Q-planner for Policy Optimization in Long-Horizon Decision-Making Tasks
-Codebase for paper: Model-based LLM Agent via Q-planner for Policy Optimization in Long-Horizon Decision-Making Tasks
+# Towards Optimal Long-Horizon Decision-Making by Model-based LLM Agent with Q-Planner
+Codebase for paper: Towards Optimal Long-Horizon Decision-Making by Model-based LLM Agent with Q-Planner
  
 <img src="LAQ.png" alt="method" width="800"/>
 
