@@ -1,7 +1,7 @@
 # Towards Optimal Long-Horizon Decision-Making by Model-based LLM Agent with Q-Planner
 Codebase for paper: Towards Optimal Long-Horizon Decision-Making by Model-based LLM Agent with Q-Planner
  
-<img src="LAQ.png" alt="method" width="800"/>
+<img src="MLAQ.png" alt="method" width="800"/>
 
 
 **Notice:** We recorded all the data during our experiments and stored it in [Google Drive](https://drive.google.com/file/d/1Yzz2BymCi00vMRKZDA-zxxetqRCR45Jk/view). 
