@@ -4,7 +4,8 @@ Codebase for paper: Towards Optimal Long-Horizon Decision-Making by Model-based 
 <img src="MLAQ.png" alt="method" width="800"/>
 
 
-**Notice:** We recorded all the data during our experiments and stored it in [Google Drive](https://drive.google.com/file/d/1xBjqhonLaOqYtkfssqq48WXkxzsJUWl7/view). 
+**Notice #1:** We recorded all the data during our experiments and stored it in [Google Drive](https://drive.google.com/file/d/1xBjqhonLaOqYtkfssqq48WXkxzsJUWl7/view). 
+**Notice #2:** We provides a demo website for readers to better understand our work in [mlaq.site](http://mlaq.site). 
 
 ## Setup
 ### setup conda env and package install
