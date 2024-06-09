@@ -5,7 +5,7 @@ Codebase for paper: Towards Optimal Long-Horizon Decision-Making by Model-based 
 
 <p align="center">
   [<a href="http://mlaq.site/">MLAQ Demo Website</a>]
-  [<a href="[http://mlaq.site/](https://drive.google.com/file/d/1xBjqhonLaOqYtkfssqq48WXkxzsJUWl7/view)">Experimental Data</a>]
+  [<a href="https://drive.google.com/file/d/1xBjqhonLaOqYtkfssqq48WXkxzsJUWl7/view/">Experimental Data</a>]
 </p>
 
 
