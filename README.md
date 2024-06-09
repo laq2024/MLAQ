@@ -17,8 +17,8 @@ This is the codebase for paper: Towards Optimal Long-Horizon Decision-Making by 
 ## Setup
 ### setup conda env and package install
 ```
-conda create -n laq python=3.8 
-conda activate laq
+conda create -n mlaq python=3.8 
+conda activate mlaq
 ```
 ### Install mujoco and dm_control for RoCo benchmark
 ```
@@ -45,7 +45,7 @@ openai.api_key = OPENAI_KEY
 ### Run MLAQ on the Blocksworld domain
 You can change the blocksworld domain to other domains by changing the `--task` argument, including `blocksworld`, `sort_central`, `sort_dialog`, `sandwich_central`, and `sandwich_dialog`.
 ```
-$ conda activate laq
-(laq) $ python run_MLAQ.py --task blocksworld -llm gpt-4-0125-preview --skip_display --tree_load --optimal_steps=2 --start_run_id=0 --start_case_id=0
+$ conda activate mlaq
+(mlaq) $ python run_MLAQ.py --task blocksworld -llm gpt-4-0125-preview --skip_display --tree_load --optimal_steps=2 --start_run_id=0 --start_case_id=0
 ```
 
