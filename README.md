@@ -15,7 +15,7 @@ This is the codebase for paper: Towards Optimal Long-Horizon Decision-Making by 
 
 **Notice #2:** We provides a **demo website** for readers to better understand our work in [mlaq.site](http://mlaq.site). 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IBbWwo4i5bo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![MLAQ Introduction Video](https://www.youtube.com/watch?v=IBbWwo4i5bo/0.jpg)](https://www.youtube.com/watch?v=IBbWwo4i5bo "MLAQ Introduction Video")
 
 ## Setup
 ### setup conda env and package install
