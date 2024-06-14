@@ -5,6 +5,7 @@
 <p align="center">
   [<a href="http://mlaq.site/">MLAQ Demo Website</a>]
   [<a href="https://drive.google.com/file/d/1xBjqhonLaOqYtkfssqq48WXkxzsJUWl7/view">Experimental Data</a>]
+  [<a href="https://www.youtube.com/watch?v=IBbWwo4i5bo">Introduction Video</a>]
 </p>
 
 
