@@ -1,6 +1,6 @@
 # Towards Optimal Long-Horizon Decision-Making by Model-based LLM Agent with Q-Planner
 
-<img src="MLAQ.png" alt="method" width="800"/>
+[![MLAQ Introduction Video](MLAQ.png)](https://www.youtube.com/watch?v=IBbWwo4i5bo "MLAQ Introduction Video")
 
 <p align="center">
   [<a href="http://mlaq.site/">MLAQ Demo Website</a>]
@@ -14,8 +14,6 @@ This is the codebase for paper: Towards Optimal Long-Horizon Decision-Making by 
 **Notice #1:** We recorded all the data during our experiments and stored it in [Google Drive](https://drive.google.com/file/d/1xBjqhonLaOqYtkfssqq48WXkxzsJUWl7/view). 
 
 **Notice #2:** We provides a **demo website** for readers to better understand our work in [mlaq.site](http://mlaq.site). 
-
-[![MLAQ Introduction Video](MLAQ.png)](https://www.youtube.com/watch?v=IBbWwo4i5bo "MLAQ Introduction Video")
 
 ## Setup
 ### setup conda env and package install
